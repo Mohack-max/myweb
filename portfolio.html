@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Youssouf Keita - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'primary': '#3B82F6',
+                    'secondary': '#1E40AF',
+                    'accent': '#60A5FA',
+                    'dark': '#1F2937',
+                    'light': '#F3F4F6',
+                },
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #E5E7EB;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header-component></header-component>
+    
+    <main>
+        
+        <section id="hero" class="hero-gradient text-white py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInUp">
+                            Mohamed Youssouf Keita
+                        </h1>
+                        <h2 class="text-xl md:text-2xl font-medium mb-6 animate__animated animate__fadeInUp animate__delay-1s">
+                            Computer Science Student & Aspiring Cybersecurity Specialist
+                        </h2>
+                        <p class="text-lg mb-8 animate__animated animate__fadeInUp animate__delay-2s">
+                            Passionate about web development, cybersecurity, and creating innovative solutions to complex problems.
+                        </p>
+                        <div class="flex flex-wrap gap-4 animate__animated animate__fadeInUp animate__delay-3s">
+                            <a href="#projects" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition duration-300">
+                                View My Work
+                            </a>
+                            <a href="https://supabasekong-shipstation.badalhibadal.com/storage/v1/object/public/shipstation-websites/temporary-assets/1746263348888-mohamed_youssoufkeita.pdf" target="_blank" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-medium py-3 px-6 rounded-full transition duration-300">
+                                Download CV
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-2/5 animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="relative">
+                            <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl">
+                                <img src="myka.jpg" alt="Mohamed Youssouf Keita" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 bg-white text-primary p-4 rounded-full shadow-lg">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">About Me</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Get to know more about me, my background, and what drives my passion for technology.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-dark mb-4">Who am I?</h3>
+                        <p class="text-gray-700 mb-4">
+                            Hello! I'm Mohamed Youssouf Keita, a computer science and engineering student at SRM University in India. I'm passionate about cybersecurity and web development, with a particular interest in becoming a penetration tester.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            My journey in technology began with a strong foundation in programming languages and has evolved to include specialized knowledge in network security, web application development, and system vulnerability assessment.
+                        </p>
+                        <p class="text-gray-700 mb-6">
+                            I believe that in today's digital landscape, cybersecurity expertise is essential across all industries. My goal is to help organizations protect their digital assets by identifying and addressing security vulnerabilities before they can be exploited.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Education</h4>
+                                <p class="text-gray-700">Computer Science & Engineering, SRM University</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Location</h4>
+                                <p class="text-gray-700">Amaravati, India</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Nationality</h4>
+                                <p class="text-gray-700">Malian</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Languages</h4>
+                                <p class="text-gray-700">English, French, Afrikaans, Spanish</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold text-dark mb-6">My Skills</h3>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">Python Programming</span>
+                                    <span class="text-primary font-medium">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">HTML5 & Web Development</span>
+                                    <span class="text-primary font-medium">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">Cybersecurity & Penetration Testing</span>
+                                    <span class="text-primary font-medium">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">SQL & Database Management</span>
+                                    <span class="text-primary font-medium">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">Networking & IP Protocols</span>
+                                    <span class="text-primary font-medium">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-700 font-medium">Object-Oriented Programming</span>
+                                    <span class="text-primary font-medium">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Experience & Education</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">My professional journey and academic background.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-8">
+                
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-dark mb-6 flex items-center">
+                            <i class="fas fa-briefcase text-primary mr-3"></i> Work Experience
+                        </h3>
+                        
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute -left-2 top-0 w-5 h-5 rounded-full bg-primary"></div>
+                            <div class="mb-8">
+                                <div class="bg-white p-6 rounded-lg shadow-md">
+                                    <h4 class="text-xl font-semibold text-dark mb-2">Teacher of Robots System</h4>
+                                    <p class="text-primary font-medium mb-2">Donifab | Bamako, Mali</p>
+                                    <p class="text-gray-500 mb-4">September 2023 - October 2023</p>
+                                    <p class="text-gray-700 mb-3">
+                                        Taught programming concepts to children aged 10-16 years, focusing on robot programming and automation.
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-700">
+                                        <li>Explained robot functionality and human-robot interaction principles</li>
+                                        <li>Taught programming using Python and Blockly games</li>
+                                        <li>Guided students through practical exercises in robot control</li>
+                                        <li>Developed custom learning materials for different age groups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-dark mb-6 flex items-center">
+                            <i class="fas fa-graduation-cap text-primary mr-3"></i> Education
+                        </h3>
+                        
+                        <div class="relative pl-8 border-l-2 border-primary">
+                            <div class="absolute -left-2 top-0 w-5 h-5 rounded-full bg-primary"></div>
+                            <div class="mb-8">
+                                <div class="bg-white p-6 rounded-lg shadow-md">
+                                    <h4 class="text-xl font-semibold text-dark mb-2">Bachelor in Computer Science & Engineering</h4>
+                                    <p class="text-primary font-medium mb-2">SRM University of Science and Engineering</p>
+                                    <p class="text-gray-500 mb-4">Expected Graduation: October 2027</p>
+                                    <p class="text-gray-700 mb-3">
+                                        Pursuing a degree in Computer Science with specialization in Cybersecurity.
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-700">
+                                        <li>Focus on penetration testing and security vulnerability assessment</li>
+                                        <li>Coursework in network security, cryptography, and secure coding practices</li>
+                                        <li>Practical training in ethical hacking and security auditing</li>
+                                        <li>Research on emerging cybersecurity threats and countermeasures</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+        <section id="projects" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">My Projects</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Explore some of my recent work and technical projects.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/06/Portfolio-site-of-the-front-end-developer-Ian-Dunkerley-1024x481.png" alt="Vitrine Website Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-dark mb-2">Vitrine Websites</h3>
+                            <p class="text-gray-700 mb-4">
+                                Designed and developed responsive showcase websites for multiple clients, focusing on clean design and optimal user experience.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">HTML5</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">CSS3</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Responsive Design</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://thumbs.dreamstime.com/b/cybersecurity-network-interface-detailed-visualization-digital-security-systems-featuring-locks-firewalls-high-311108132.jpg" alt="Network Scanner Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-dark mb-2">Network Scanner</h3>
+                            <p class="text-gray-700 mb-4">
+                                Developed a Python-based network scanning tool that identifies active hosts, open ports, and potential vulnerabilities on a network.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Networking</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Cybersecurity</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Socket Programming</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/sj4H45SCU6Q/maxresdefault.jpg" alt="File Sharing System Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-dark mb-2">File Sharing System</h3>
+                            <p class="text-gray-700 mb-4">
+                                Created a secure peer-to-peer file sharing application using socket programming, enabling efficient file transfers between users.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Socket Programming</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Networking</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">UI Design</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://copyassignment.com/wp-content/uploads/2022/03/image-10.png" alt="Library Management System Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-dark mb-2">Library Management System</h3>
+                            <p class="text-gray-700 mb-4">
+                                Developed a comprehensive library management system with multi-factor authentication, book tracking, and user management features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">SQL</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Database Design</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Authentication</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+        <section id="certifications" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Certifications & Achievements</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Professional certifications and notable achievements in my career.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  
+                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">Web Application Security and Pentesting Tools</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Certification in web application security assessment and penetration testing methodologies, covering vulnerability scanning and ethical hacking techniques.
+                        </p>
+                    </div>
+                 
+                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                <i class="fas fa-globe text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">First Global Challenge Participant</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Selected to participate in the prestigious First Global Challenge, an international robotics competition focusing on STEM education and global cooperation.
+                        </p>
+                    </div>
+                    
+                 
+                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                <i class="fas fa-microphone text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">Public Speaking 2.0 Certificate</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Received certification in advanced public speaking techniques from Mali, enhancing presentation skills and effective communication for technical topics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+        <section id="languages" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Language Proficiency</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Languages I speak and their proficiency levels.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                   
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-dark">English</h3>
+                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">B2</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Upper Intermediate</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-dark">French</h3>
+                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">C1</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Advanced</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+             
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Afrikaans</h3>
+                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">C1</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Advanced</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-dark">Spanish</h3>
+                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">B1</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Intermediate</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+        <section id="contact" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get In Touch</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Feel free to reach out to me for collaborations, opportunities, or just to say hello!</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-dark mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-dark mb-1">Email</h4>
+                                    <p class="text-gray-700"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6805070009050d0c11071d1b1b071d0e030d011c095c280f05090104460b0705">mohamedyoussoufkeita@gmail.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-dark mb-1">Phone</h4>
+                                    <p class="text-gray-700">+91 7093552072</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-dark mb-1">Location</h4>
+                                    <p class="text-gray-700">Amaravati, India 522502</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-dark mb-6">Connect With Me</h3>
+                        
+                        <p class="text-gray-700 mb-6">
+                            I'm always interested in new opportunities, collaborations, and projects. Feel free to connect with me on social media or download my CV to learn more about my experience and skills.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <a href="www.linkedin.com/in/mohamed-youssouf-keita-myhack" class="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="https://github.com/Mohack-max" class="w-12 h-12 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-blue-400 text-white rounded-full hover:bg-blue-500 transition duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-300">
+                                <i class="fab fa-youtube text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <a href="https://supabasekong-shipstation.badalhibadal.com/storage/v1/object/public/shipstation-websites/temporary-assets/1746263348888-mohamed_youssoufkeita.pdf" target="_blank" class="inline-flex items-center bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer-component></footer-component>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        class Header extends HTMLElement {
+            connectedCallback() {
+                this.innerHTML = `
+                    <header class="bg-white shadow-md sticky top-0 z-50">
+                        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex items-center justify-between h-20">
+                                <div class="flex items-center">
+                                    <a href="#" class="text-2xl font-bold text-primary">
+                                        <span class="text-dark">Mohamed</span> Keita
+                                    </a>
+                                </div>
+                                
+                                <nav class="hidden md:block">
+                                    <ul class="flex space-x-8">
+                                        <li><a href="#hero" class="text-gray-700 hover:text-primary font-medium transition duration-300">Home</a></li>
+                                        <li><a href="#about" class="text-gray-700 hover:text-primary font-medium transition duration-300">About</a></li>
+                                        <li><a href="#experience" class="text-gray-700 hover:text-primary font-medium transition duration-300">Experience</a></li>
+                                        <li><a href="#projects" class="text-gray-700 hover:text-primary font-medium transition duration-300">Projects</a></li>
+                                        <li><a href="#certifications" class="text-gray-700 hover:text-primary font-medium transition duration-300">Certifications</a></li>
+                                        <li><a href="#contact" class="text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
+                                    </ul>
+                                </nav>
+                                
+                                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary focus:outline-none">
+                                    <i class="fas fa-bars text-2xl"></i>
+                                </button>
+                            </div>
+                            
+                            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                                <ul class="flex flex-col space-y-4">
+                                    <li><a href="#hero" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Home</a></li>
+                                    <li><a href="#about" class="block text-gray-700 hover:text-primary font-medium transition duration-300">About</a></li>
+                                    <li><a href="#experience" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Experience</a></li>
+                                    <li><a href="#projects" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Projects</a></li>
+                                    <li><a href="#certifications" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Certifications</a></li>
+                                    <li><a href="#contact" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                `;
+                this.initializeMenu();
+            }
+
+            initializeMenu() {
+                const mobileMenuButton = this.querySelector('#mobile-menu-button');
+                const mobileMenu = this.querySelector('#mobile-menu');
+                const mobileMenuLinks = this.querySelectorAll('#mobile-menu a');
+                
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                    
+                    mobileMenuLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            mobileMenu.classList.add('hidden');
+                        });
+                    });
+                }
+            }
+        }
+
+        class Footer extends HTMLElement {
+            connectedCallback() {
+                this.innerHTML = `
+                    <footer class="bg-dark text-white py-12">
+                        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="mb-6 md:mb-0">
+                                    <h2 class="text-2xl font-bold mb-2">Mohamed Youssouf Keita</h2>
+                                    <p class="text-gray-400">Computer Science Student & Aspiring Cybersecurity Specialist</p>
+                                </div>
+                                
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                        <i class="fab fa-linkedin-in text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                        <i class="fab fa-twitter text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                        <i class="fab fa-youtube text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <hr class="border-gray-800 my-8">
+                            
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <p class="text-gray-400 mb-4 md:mb-0">
+                                    &copy; ${new Date().getFullYear()} Mohamed Youssouf Keita. All rights reserved.
+                                </p>
+                                
+                                <ul class="flex flex-wrap justify-center gap-4">
+                                    <li><a href="#hero" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                                    <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                                    <li><a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                                    <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                `;
+            }
+        }
+
+        // Register custom elements
+        customElements.define('header-component', Header);
+        customElements.define('footer-component', Footer);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation classes on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.skill-progress');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.width = element.style.width;
+                    element.style.transition = 'width 1s ease-in-out';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
