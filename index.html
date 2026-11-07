@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Youssouf Keita - Developer Portfolio</title>
+    <title>Mohamed Youssouf Keita - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
     tailwind.config = {
@@ -34,12 +34,95 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            color-scheme: dark;
+            --page: #111719;
+            --surface: #1d262b;
+            --surface-muted: #171f23;
+            --text: #edf2f3;
+            --text-muted: #b7c3c7;
+            --border: #354248;
+        }
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            background-color: var(--page);
+            color: var(--text);
         }
         .hero-gradient {
-            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            background: linear-gradient(125deg, #164e63 0%, #1e3a5f 58%, #12333a 100%);
+        }
+        .bg-white {
+            background-color: var(--surface) !important;
+        }
+        .bg-gray-50 {
+            background-color: var(--surface-muted) !important;
+        }
+        .bg-dark {
+            background-color: #0c1114 !important;
+        }
+        .text-dark {
+            color: var(--text) !important;
+        }
+        .text-gray-700 {
+            color: #d0dadd !important;
+        }
+        .text-gray-600 {
+            color: var(--text-muted) !important;
+        }
+        .text-gray-500 {
+            color: #9caaaf !important;
+        }
+        .bg-blue-100 {
+            background-color: #173642 !important;
+        }
+        .text-blue-800 {
+            color: #a5e8f2 !important;
+        }
+        header-component header {
+            background-color: #171f23 !important;
+            border-bottom: 1px solid var(--border);
+        }
+        header-component nav ul {
+            column-gap: 1rem;
+        }
+        header-component nav li + li {
+            margin-left: 0 !important;
+        }
+        header-component nav a {
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        @media (min-width: 768px) and (max-width: 1150px) {
+            header-component nav {
+                display: none !important;
+            }
+            header-component #mobile-menu-button {
+                display: block !important;
+            }
+            header-component #mobile-menu:not(.hidden) {
+                display: block !important;
+            }
+        }
+        .shadow-md, .shadow-lg {
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+        }
+        .skill-bar {
+            background-color: #39464b;
+        }
+        .contact-email {
+            overflow-wrap: anywhere;
+        }
+        .contact-email a {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        #about .contact-email,
+        #about .contact-email a {
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere !important;
+            word-break: break-all;
         }
         .project-card:hover {
             transform: translateY(-5px);
@@ -56,6 +139,52 @@
             border-radius: 5px;
             background-color: #3B82F6;
         }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+        .project-card {
+            transition: transform 250ms ease, box-shadow 250ms ease;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 34px rgba(31, 41, 55, 0.14);
+        }
+        .project-card img {
+            transition: transform 500ms ease;
+        }
+        .certificate-image {
+            aspect-ratio: 16 / 10;
+        }
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-card:hover img {
+            transform: scale(1.04);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 600ms ease, transform 600ms ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -71,24 +200,24 @@
                             Mohamed Youssouf Keita
                         </h1>
                         <h2 class="text-xl md:text-2xl font-medium mb-6 animate__animated animate__fadeInUp animate__delay-1s">
-                            Computer Science Student & Aspiring Cybersecurity Specialist
+                            <span data-i18n="heroRole">Étudiant en génie informatique</span>
                         </h2>
                         <p class="text-lg mb-8 animate__animated animate__fadeInUp animate__delay-2s">
-                            Passionate about web development, cybersecurity, and creating innovative solutions to complex problems.
+                            <span data-i18n="heroIntro">Étudiant en informatique à SRM AP, consultant en solutions ERP et développeur intéressé par la cybersécurité, les systèmes distribués et l’innovation.</span>
                         </p>
                         <div class="flex flex-wrap gap-4 animate__animated animate__fadeInUp animate__delay-3s">
                             <a href="#projects" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition duration-300">
-                                View My Work
+                                <span data-i18n="heroProjects">Découvrir mes projets</span>
                             </a>
-                            <a href="https://supabasekong-shipstation.badalhibadal.com/storage/v1/object/public/shipstation-websites/temporary-assets/1746263348888-mohamed_youssoufkeita.pdf" target="_blank" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-medium py-3 px-6 rounded-full transition duration-300">
-                                Download CV
+                            <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-medium py-3 px-6 rounded-full transition duration-300">
+                                <span data-i18n="heroContact">Me contacter</span>
                             </a>
                         </div>
                     </div>
                     <div class="md:w-2/5 animate__animated animate__fadeIn animate__delay-2s">
                         <div class="relative">
                             <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl">
-                                <img src="myka.jpg" alt="Mohamed Youssouf Keita" class="w-full h-full object-cover">
+                                <img id="profile-image" src="myka.jpg" alt="Mohamed Youssouf Keita" class="w-full h-full object-cover">
                             </div>
                             <div class="absolute -bottom-4 -right-4 bg-white text-primary p-4 rounded-full shadow-lg">
                                 <i class="fas fa-code text-2xl"></i>
@@ -102,106 +231,54 @@
         <section id="about" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">About Me</h2>
+                    <h2 data-i18n="aboutTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">À propos</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Get to know more about me, my background, and what drives my passion for technology.</p>
+                    <p data-i18n="aboutLead" class="text-gray-600 max-w-3xl mx-auto">Mon parcours en informatique, en ingénierie des systèmes et en technologies utiles.</p>
                 </div>
                 
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2">
-                        <h3 class="text-2xl font-semibold text-dark mb-4">Who am I?</h3>
+                        <h3 data-i18n="aboutHeading" class="text-2xl font-semibold text-dark mb-4">Mon profil</h3>
                         <p class="text-gray-700 mb-4">
-                            Hello! I'm Mohamed Youssouf Keita, a computer science and engineering student at SRM University in India. I'm passionate about cybersecurity and web development, with a particular interest in becoming a penetration tester.
+                            <span data-i18n="aboutParagraph1">Je suis Mohamed Youssouf Keita, étudiant en génie informatique à l’Université SRM AP. Mes expériences couvrent le conseil ERP, le développement logiciel, les infrastructures réseau et la cybersécurité.</span>
                         </p>
                         <p class="text-gray-700 mb-4">
-                            My journey in technology began with a strong foundation in programming languages and has evolved to include specialized knowledge in network security, web application development, and system vulnerability assessment.
+                            <span data-i18n="aboutParagraph2">J’aime concevoir des solutions concrètes, de l’optimisation de processus métier avec SAP S/4HANA aux systèmes de partage de fichiers sécurisés et aux outils de détection de phishing.</span>
                         </p>
                         <p class="text-gray-700 mb-6">
-                            I believe that in today's digital landscape, cybersecurity expertise is essential across all industries. My goal is to help organizations protect their digital assets by identifying and addressing security vulnerabilities before they can be exploited.
+                            <span data-i18n="aboutParagraph3">En parallèle de mes études, je m’investis dans le mentorat STEM, les activités étudiantes et l’accompagnement de projets technologiques.</span>
                         </p>
                         
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <h4 class="font-semibold text-dark mb-2">Education</h4>
-                                <p class="text-gray-700">Computer Science & Engineering, SRM University</p>
+                                <h4 data-i18n="educationLabel" class="font-semibold text-dark mb-2">Formation</h4>
+                                <p data-i18n="educationShort" class="text-gray-700">Génie informatique, Université SRM AP</p>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-dark mb-2">Location</h4>
-                                <p class="text-gray-700">Amaravati, India</p>
+                                <h4 data-i18n="exchangeLabel" class="font-semibold text-dark mb-2">Échange académique</h4>
+                                <p data-i18n="exchangeShort" class="text-gray-700">INTI International University, Malaisie · Automne 2025</p>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-dark mb-2">Nationality</h4>
-                                <p class="text-gray-700">Malian</p>
+                                <h4 data-i18n="phoneLabel" class="font-semibold text-dark mb-2">Téléphone</h4>
+                                <p class="text-gray-700">+91 7093552072</p>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-dark mb-2">Languages</h4>
-                                <p class="text-gray-700">English, French, Afrikaans, Spanish</p>
+                                <h4 data-i18n="emailLabel" class="font-semibold text-dark mb-2">E-mail</h4>
+                                <p class="text-gray-700 contact-email">mohamedyoussouf_keita@srmap.edu.in</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="md:w-1/2">
                         <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                            <h3 class="text-2xl font-semibold text-dark mb-6">My Skills</h3>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">Python Programming</span>
-                                    <span class="text-primary font-medium">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">HTML5 & Web Development</span>
-                                    <span class="text-primary font-medium">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">Cybersecurity & Penetration Testing</span>
-                                    <span class="text-primary font-medium">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">SQL & Database Management</span>
-                                    <span class="text-primary font-medium">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">Networking & IP Protocols</span>
-                                    <span class="text-primary font-medium">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-700 font-medium">Object-Oriented Programming</span>
-                                    <span class="text-primary font-medium">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
+                            <h3 data-i18n="skillsTitle" class="text-2xl font-semibold text-dark mb-6">Compétences techniques</h3>
+                            <div class="space-y-5">
+                                <div><h4 data-i18n="skillLanguages" class="font-semibold text-primary mb-2">Langages</h4><p class="text-gray-700">C++, Java, Python, Rust</p></div>
+                                <div><h4 data-i18n="skillWeb" class="font-semibold text-primary mb-2">Web / développement</h4><p class="text-gray-700">ReactJS, Bootstrap, TypeScript</p></div>
+                                <div><h4 data-i18n="skillDatabases" class="font-semibold text-primary mb-2">Bases de données</h4><p class="text-gray-700">MySQL, MongoDB</p></div>
+                                <div><h4 data-i18n="skillTools" class="font-semibold text-primary mb-2">Outils et systèmes</h4><p class="text-gray-700">Git, GitHub, GitHub Actions, Arduino, IoT</p></div>
+                                <div><h4 data-i18n="skillErp" class="font-semibold text-primary mb-2">ERP et métier</h4><p class="text-gray-700">Implémentation ERP, optimisation des processus, intégration</p></div>
+                                <div><h4 data-i18n="skillSoft" class="font-semibold text-primary mb-2">Transversales</h4><p class="text-gray-700">Design thinking, communication, agilité, leadership</p></div>
                             </div>
                         </div>
                     </div>
@@ -212,34 +289,41 @@
         <section id="experience" class="py-16 md:py-24 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Experience & Education</h2>
+                    <h2 data-i18n="experienceTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">Expérience & formation</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">My professional journey and academic background.</p>
+                    <p data-i18n="experienceLead" class="text-gray-600 max-w-3xl mx-auto">Mon expérience professionnelle et mon parcours académique.</p>
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8">
                 
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-semibold text-dark mb-6 flex items-center">
-                            <i class="fas fa-briefcase text-primary mr-3"></i> Work Experience
+                            <i class="fas fa-briefcase text-primary mr-3"></i> <span data-i18n="workTitle">Expérience professionnelle</span>
                         </h3>
                         
                         <div class="relative pl-8 border-l-2 border-primary">
                             <div class="absolute -left-2 top-0 w-5 h-5 rounded-full bg-primary"></div>
                             <div class="mb-8">
                                 <div class="bg-white p-6 rounded-lg shadow-md">
-                                    <h4 class="text-xl font-semibold text-dark mb-2">Teacher of Robots System</h4>
-                                    <p class="text-primary font-medium mb-2">Donifab | Bamako, Mali</p>
-                                    <p class="text-gray-500 mb-4">September 2023 - October 2023</p>
+                                    <h4 data-i18n="erpTitle" class="text-xl font-semibold text-dark mb-2">Consultant en solutions ERP</h4>
+                                    <p data-i18n="currentRole" class="text-primary font-medium mb-2">En cours</p>
                                     <p class="text-gray-700 mb-3">
-                                        Taught programming concepts to children aged 10-16 years, focusing on robot programming and automation.
+                                        <span data-i18n="erpDescription">Conseil en implémentation et optimisation de systèmes ERP avec SAP S/4HANA pour rationaliser les processus métier et améliorer l’efficacité opérationnelle.</span>
                                     </p>
                                     <ul class="list-disc list-inside text-gray-700">
-                                        <li>Explained robot functionality and human-robot interaction principles</li>
-                                        <li>Taught programming using Python and Blockly games</li>
-                                        <li>Guided students through practical exercises in robot control</li>
-                                        <li>Developed custom learning materials for different age groups</li>
+                                        <li data-i18n="erpBullet1">Analyse des besoins métier et personnalisation des modules ERP</li>
+                                        <li data-i18n="erpBullet2">Intégration des fonctions finance, inventaire, RH et chaîne d’approvisionnement</li>
+                                        <li data-i18n="erpBullet3">Formation des utilisateurs et rédaction de documentation pour faciliter l’adoption</li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <div class="bg-white p-6 rounded-lg shadow-md">
+                                    <h4 data-i18n="internTitle" class="text-xl font-semibold text-dark mb-2">Stagiaire</h4>
+                                    <p class="text-primary font-medium mb-2">ITKM Center</p>
+                                    <p class="text-gray-700">
+                                        <span data-i18n="internDescription">Découverte de l’ingénierie et de la fabrication de câbles réseau, ainsi que du fonctionnement d’un datacenter : matériel, infrastructure et flux opérationnels.</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -248,24 +332,24 @@
                    
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-semibold text-dark mb-6 flex items-center">
-                            <i class="fas fa-graduation-cap text-primary mr-3"></i> Education
+                            <i class="fas fa-graduation-cap text-primary mr-3"></i> <span data-i18n="educationTitle">Formation</span>
                         </h3>
                         
                         <div class="relative pl-8 border-l-2 border-primary">
                             <div class="absolute -left-2 top-0 w-5 h-5 rounded-full bg-primary"></div>
                             <div class="mb-8">
                                 <div class="bg-white p-6 rounded-lg shadow-md">
-                                    <h4 class="text-xl font-semibold text-dark mb-2">Bachelor in Computer Science & Engineering</h4>
-                                    <p class="text-primary font-medium mb-2">SRM University of Science and Engineering</p>
-                                    <p class="text-gray-500 mb-4">Expected Graduation: October 2027</p>
+                                    <h4 data-i18n="degreeTitle" class="text-xl font-semibold text-dark mb-2">Bachelor en génie informatique</h4>
+                                    <p class="text-primary font-medium mb-2">Université SRM AP, Andhra Pradesh</p>
+                                    <p data-i18n="degreeDate" class="text-gray-500 mb-4">Depuis octobre 2023 · En cours</p>
                                     <p class="text-gray-700 mb-3">
-                                        Pursuing a degree in Computer Science with specialization in Cybersecurity.
+                                        <span data-i18n="degreeDescription">Semestre d’échange à INTI International University, Malaisie (automne 2025).</span>
                                     </p>
                                     <ul class="list-disc list-inside text-gray-700">
-                                        <li>Focus on penetration testing and security vulnerability assessment</li>
-                                        <li>Coursework in network security, cryptography, and secure coding practices</li>
-                                        <li>Practical training in ethical hacking and security auditing</li>
-                                        <li>Research on emerging cybersecurity threats and countermeasures</li>
+                                        <li data-i18n="course1">Programmation orientée objet avec C++</li>
+                                        <li data-i18n="course2">Structures de données et algorithmes</li>
+                                        <li data-i18n="course3">Conception et analyse d’algorithmes</li>
+                                        <li data-i18n="course4">Technologies web, bases de données et spécialisation full stack</li>
                                     </ul>
                                 </div>
                             </div>
@@ -279,99 +363,31 @@
         <section id="projects" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">My Projects</h2>
+                    <h2 data-i18n="projectsTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">Projets</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Explore some of my recent work and technical projects.</p>
+                    <p data-i18n="projectsLead" class="text-gray-600 max-w-3xl mx-auto">Projets de recherche appliquée, de cybersécurité et d’ingénierie logicielle.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/06/Portfolio-site-of-the-front-end-developer-Ian-Dunkerley-1024x481.png" alt="Vitrine Website Project" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-dark mb-2">Vitrine Websites</h3>
-                            <p class="text-gray-700 mb-4">
-                                Designed and developed responsive showcase websites for multiple clients, focusing on clean design and optimal user experience.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">HTML5</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">CSS3</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Responsive Design</span>
-                            </div>
-                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
-                                View Details <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
+                <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <section id="writing" class="py-16 bg-gray-50" hidden>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-l-4 border-primary bg-white p-6 md:p-8 shadow-sm">
+                    <div>
+                        <p data-i18n="articlesLabel" class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Articles</p>
+                        <h2 data-i18n="publicationsTitle" class="text-2xl md:text-3xl font-bold text-dark mb-2">Publications</h2>
+                        <p data-i18n="publicationsLead" class="text-gray-600">Articles publiés sur Hashnode et travaux réalisés avec Next Tech Lab et Arcana.</p>
                     </div>
-                    
-                   
-                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://thumbs.dreamstime.com/b/cybersecurity-network-interface-detailed-visualization-digital-security-systems-featuring-locks-firewalls-high-311108132.jpg" alt="Network Scanner Project" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-dark mb-2">Network Scanner</h3>
-                            <p class="text-gray-700 mb-4">
-                                Developed a Python-based network scanning tool that identifies active hosts, open ports, and potential vulnerabilities on a network.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Networking</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Cybersecurity</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Socket Programming</span>
-                            </div>
-                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
-                                View Details <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                   
-                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://i.ytimg.com/vi/sj4H45SCU6Q/maxresdefault.jpg" alt="File Sharing System Project" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-dark mb-2">File Sharing System</h3>
-                            <p class="text-gray-700 mb-4">
-                                Created a secure peer-to-peer file sharing application using socket programming, enabling efficient file transfers between users.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Socket Programming</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Networking</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">UI Design</span>
-                            </div>
-                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
-                                View Details <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                   
-                    <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
-                        <div class="h-56 overflow-hidden">
-                            <img src="https://copyassignment.com/wp-content/uploads/2022/03/image-10.png" alt="Library Management System Project" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-dark mb-2">Library Management System</h3>
-                            <p class="text-gray-700 mb-4">
-                                Developed a comprehensive library management system with multi-factor authentication, book tracking, and user management features.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">SQL</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Database Design</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Python</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Authentication</span>
-                            </div>
-                            <a href="#" class="inline-block text-primary hover:text-secondary font-medium transition duration-300">
-                                View Details <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <a id="hashnode-link" href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold">
+                        <span data-i18n="hashnodeButton">Voir Hashnode</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <article class="bg-white p-6 rounded-lg shadow-md"><p data-i18n="publicationDate1" class="text-sm text-primary font-medium mb-2">Hashnode · 3 février</p><h3 class="text-lg font-semibold text-dark">Exploring Compiler Design: An In-Depth Look at Program Transformation</h3></article>
+                    <article class="bg-white p-6 rounded-lg shadow-md"><p data-i18n="publicationDate2" class="text-sm text-primary font-medium mb-2">Next Tech Lab · Arcana · 10 juin 2025</p><h3 class="text-lg font-semibold text-dark">Understanding and Coding a Remote Access Trojan (RAT)</h3></article>
+                    <article class="bg-white p-6 rounded-lg shadow-md"><p data-i18n="publicationDate3" class="text-sm text-primary font-medium mb-2">Next Tech Lab · Arcana · 30 mai 2025</p><h3 class="text-lg font-semibold text-dark">Bluetooth Hacking Exposed: Uncovering Security Threats</h3></article>
                 </div>
             </div>
         </section>
@@ -380,110 +396,28 @@
         <section id="certifications" class="py-16 md:py-24 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Certifications & Achievements</h2>
+                    <h2 data-i18n="certificationsTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">Certifications & distinctions</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Professional certifications and notable achievements in my career.</p>
+                    <p data-i18n="certificationsLead" class="text-gray-600 max-w-3xl mx-auto">Certifications professionnelles et reconnaissance académique.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  
-                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
-                                <i class="fas fa-shield-alt text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-dark">Web Application Security and Pentesting Tools</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            Certification in web application security assessment and penetration testing methodologies, covering vulnerability scanning and ethical hacking techniques.
-                        </p>
-                    </div>
-                 
-                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
-                                <i class="fas fa-globe text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-dark">First Global Challenge Participant</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            Selected to participate in the prestigious First Global Challenge, an international robotics competition focusing on STEM education and global cooperation.
-                        </p>
-                    </div>
-                    
-                 
-                    <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
-                                <i class="fas fa-microphone text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-dark">Public Speaking 2.0 Certificate</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            Received certification in advanced public speaking techniques from Mali, enhancing presentation skills and effective communication for technical topics.
-                        </p>
-                    </div>
-                </div>
+                <div id="certification-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
         </section>
 
       
-        <section id="languages" class="py-16 md:py-24 bg-white">
+        <section id="leadership" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Language Proficiency</h2>
+                    <h2 data-i18n="leadershipTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">Leadership & activités</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Languages I speak and their proficiency levels.</p>
+                    <p data-i18n="leadershipLead" class="text-gray-600 max-w-3xl mx-auto">Engagement étudiant, mentorat et projets à impact communautaire.</p>
                 </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                   
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-dark">English</h3>
-                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">B2</span>
-                        </div>
-                        <p class="text-gray-700 mb-3">Upper Intermediate</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    
-                   
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-dark">French</h3>
-                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">C1</span>
-                        </div>
-                        <p class="text-gray-700 mb-3">Advanced</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-             
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-dark">Afrikaans</h3>
-                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">C1</span>
-                        </div>
-                        <p class="text-gray-700 mb-3">Advanced</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-dark">Spanish</h3>
-                            <span class="text-sm font-medium text-white bg-primary px-3 py-1 rounded-full">B1</span>
-                        </div>
-                        <p class="text-gray-700 mb-3">Intermediate</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 60%"></div>
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <article class="bg-gray-50 p-6 rounded-lg shadow-md"><p data-i18n="leadership1Org" class="text-sm font-semibold text-primary mb-2">ONG · Mali</p><h3 data-i18n="leadership1Title" class="text-xl font-semibold text-dark mb-3">Développement web pour Healthmour</h3><p data-i18n="leadership1Description" class="text-gray-700">Conception et développement du site officiel de l’ONG pour soutenir les initiatives de santé communautaire et renforcer la visibilité de ses programmes d’aide.</p></article>
+                    <article class="bg-gray-50 p-6 rounded-lg shadow-md"><p data-i18n="leadership2Org" class="text-sm font-semibold text-primary mb-2">Université SRM AP</p><h3 data-i18n="leadership2Title" class="text-xl font-semibold text-dark mb-3">Adjoint au Conseil des Sports</h3><p data-i18n="leadership2Description" class="text-gray-700">Élu pour coordonner les activités sportives, gérer les événements et accompagner les étudiants-athlètes.</p></article>
+                    <article class="bg-gray-50 p-6 rounded-lg shadow-md"><p data-i18n="leadership3Org" class="text-sm font-semibold text-primary mb-2">Donilab · Mali</p><h3 data-i18n="leadership3Title" class="text-xl font-semibold text-dark mb-3">Défenseur de l’éducation STEM</h3><p data-i18n="leadership3Description" class="text-gray-700">Mentorat de plus de 50 étudiants en programmation et robotique.</p></article>
+                    <article class="bg-gray-50 p-6 rounded-lg shadow-md"><p data-i18n="leadership4Org" class="text-sm font-semibold text-primary mb-2">Singularity Lab · Next Tech Lab</p><h3 data-i18n="leadership4Title" class="text-xl font-semibold text-dark mb-3">Membre et ancien mentor</h3><p data-i18n="leadership4Description" class="text-gray-700">Encadrement d’étudiants en cybersécurité et exploration de nouvelles technologies de pointe.</p></article>
                 </div>
             </div>
         </section>
@@ -492,14 +426,14 @@
         <section id="contact" class="py-16 md:py-24 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get In Touch</h2>
+                    <h2 data-i18n="contactTitle" class="text-3xl md:text-4xl font-bold text-dark mb-4">Contact</h2>
                     <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Feel free to reach out to me for collaborations, opportunities, or just to say hello!</p>
+                    <p data-i18n="contactLead" class="text-gray-600 max-w-3xl mx-auto">Pour une collaboration ou une opportunité, contactez-moi par e-mail ou retrouvez-moi en ligne.</p>
                 </div>
                 
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-semibold text-dark mb-6">Contact Information</h3>
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="w-full md:w-1/2 bg-white p-8 rounded-lg shadow-md">
+                        <h3 data-i18n="contactDetails" class="text-2xl font-semibold text-dark mb-6">Coordonnées</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -507,8 +441,8 @@
                                     <i class="fas fa-envelope text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-medium text-dark mb-1">Email</h4>
-                                    <p class="text-gray-700"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6805070009050d0c11071d1b1b071d0e030d011c095c280f05090104460b0705">mohamedyoussoufkeita@gmail.com</a></p>
+                                    <h4 data-i18n="emailLabel" class="text-lg font-medium text-dark mb-1">E-mail</h4>
+                                    <p class="text-gray-700 contact-email"><a href="mailto:mohamedyoussouf_keita@srmap.edu.in">mohamedyoussouf_keita@srmap.edu.in</a></p>
                                 </div>
                             </div>
                             
@@ -517,48 +451,28 @@
                                     <i class="fas fa-phone text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-medium text-dark mb-1">Phone</h4>
+                                    <h4 data-i18n="phoneLabel" class="text-lg font-medium text-dark mb-1">Téléphone</h4>
                                     <p class="text-gray-700">+91 7093552072</p>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4">
-                                    <i class="fas fa-map-marker-alt text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium text-dark mb-1">Location</h4>
-                                    <p class="text-gray-700">Amaravati, India 522502</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     
-                    <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-semibold text-dark mb-6">Connect With Me</h3>
+                    <div class="w-full md:w-1/2 text-center self-center">
                         
                         <p class="text-gray-700 mb-6">
-                            I'm always interested in new opportunities, collaborations, and projects. Feel free to connect with me on social media or download my CV to learn more about my experience and skills.
+                            <span data-i18n="contactOutro">Je suis ouvert aux opportunités, aux collaborations et aux échanges autour des technologies.</span>
                         </p>
                         
-                        <div class="flex flex-wrap gap-4 mb-8">
-                            <a href="www.linkedin.com/in/mohamed-youssouf-keita-myhack" class="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">
-                                <i class="fab fa-linkedin-in text-xl"></i>
+                        <div class="flex justify-center gap-5">
+                            <a href="https://www.linkedin.com/in/mohamed-youssouf-keita-myhack" data-profile-link="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="w-16 h-16 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 hover:-translate-y-1 transition duration-300 shadow-md">
+                                <i class="fab fa-linkedin-in text-2xl" aria-hidden="true"></i>
                             </a>
-                            <a href="https://github.com/Mohack-max" class="w-12 h-12 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-blue-400 text-white rounded-full hover:bg-blue-500 transition duration-300">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-300">
-                                <i class="fab fa-youtube text-xl"></i>
+                            <a href="https://github.com/Mohack-max" data-profile-link="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="w-16 h-16 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-900 hover:-translate-y-1 transition duration-300 shadow-md">
+                                <i class="fab fa-github text-2xl" aria-hidden="true"></i>
                             </a>
                         </div>
-                        
-                        <a href="https://supabasekong-shipstation.badalhibadal.com/storage/v1/object/public/shipstation-websites/temporary-assets/1746263348888-mohamed_youssoufkeita.pdf" target="_blank" class="inline-flex items-center bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg transition duration-300">
-                            <i class="fas fa-download mr-2"></i> Download CV
-                        </a>
                     </div>
                 </div>
             </div>
@@ -568,7 +482,245 @@
     <footer-component></footer-component>
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        const portfolioData = {
+            hashnodePublicationUrl: "https://hashnode.com/@medihack",
+            images: {
+                profile: "myka.jpg"
+            },
+            links: {
+                linkedin: "https://www.linkedin.com/in/mohamed-youssouf-keita-myhack/",
+                github: "https://github.com/Mohack-max"
+            },
+            certifications: [
+                {
+                    title: "Dean’s Award",
+                    titleEn: "Dean’s Award",
+                    description: "Lauréat unique parmi plus de 400 étudiants internationaux lors du programme d’échange académique à INTI International University, Malaisie (automne 2025).",
+                    descriptionEn: "Selected as the sole recipient among more than 400 international students during the academic exchange program at INTI International University, Malaysia (Fall 2025).",
+                    icon: "fas fa-shield-alt",
+                    image: "",
+                    imageAlt: "Dean’s Award certificate"
+                },
+                {
+                    title: "CCNA",
+                    titleEn: "CCNA",
+                    description: "Cisco Certified Network Associate.",
+                    descriptionEn: "Cisco Certified Network Associate.",
+                    icon: "fas fa-network-wired",
+                    image: "",
+                    imageAlt: "CCNA certificate"
+                },
+                {
+                    title: "MongoDB Certified Developer Associate",
+                    titleEn: "MongoDB Certified Developer Associate",
+                    description: "Certification développeur associée MongoDB.",
+                    descriptionEn: "MongoDB Certified Developer Associate certification.",
+                    icon: "fas fa-database",
+                    image: "",
+                    imageAlt: "MongoDB Certified Developer Associate certificate"
+                }
+            ],
+            projects: [
+                {
+                    title: "Sparx · Expert en reconnaissance d’attaques et phishing social",
+                    titleEn: "Sparx · Social Phishing and Attack Recognition Expert",
+                    organization: "Next Tech Lab",
+                    description: "Développement collaboratif d’un modèle de deep learning basé sur BERT pour détecter les attaques de Business Email Compromise (BEC), à partir du contenu des e-mails et des relations sociales. Le modèle a dépassé de plus de 99 % les systèmes de filtrage existants en précision de détection.",
+                    descriptionEn: "Collaborated on a BERT-based deep learning model to detect Business Email Compromise (BEC) and phishing using email content and social relationship mapping. The model achieved detection accuracy more than 99% higher than existing filtering systems.",
+                    image: "",
+                    imageAlt: "Illustration du projet Sparx",
+                    technologies: ["Python", "BERT", "Deep learning", "Détection de phishing"],
+                    link: ""
+                },
+                {
+                    title: "Système sécurisé de partage de fichiers multi-OS",
+                    titleEn: "Secure Cross-Platform Datacenter File-Sharing System",
+                    organization: "Projet datacenter",
+                    organizationEn: "Datacenter project",
+                    description: "Conception d’un logiciel de partage entre serveurs Linux, Windows et Unix avec chiffrement de bout en bout. Développement d’un protocole interopérable préservant l’intégrité et la confidentialité avec une faible latence.",
+                    descriptionEn: "Designed secure file sharing across Linux, Windows, and Unix servers using end-to-end encryption. Developed an interoperable transfer protocol that protects data integrity and confidentiality while maintaining low latency.",
+                    image: "",
+                    imageAlt: "Illustration du système sécurisé de partage de fichiers",
+                    technologies: ["C++", "Rust", "Linux", "Windows", "Unix", "Chiffrement"],
+                    link: ""
+                }
+            ]
+        };
+
+        const translations = {
+            fr: {
+                heroRole: "Étudiant en génie informatique",
+                heroIntro: "Étudiant en informatique à SRM AP, consultant en solutions ERP et développeur intéressé par la cybersécurité, les systèmes distribués et l’innovation.",
+                heroProjects: "Découvrir mes projets", heroContact: "Me contacter",
+                aboutTitle: "À propos", aboutLead: "Mon parcours en informatique, en ingénierie des systèmes et en technologies utiles.",
+                aboutHeading: "Mon profil",
+                aboutParagraph1: "Je suis Mohamed Youssouf Keita, étudiant en génie informatique à l’Université SRM AP. Mes expériences couvrent le conseil ERP, le développement logiciel, les infrastructures réseau et la cybersécurité.",
+                aboutParagraph2: "J’aime concevoir des solutions concrètes, de l’optimisation de processus métier avec SAP S/4HANA aux systèmes de partage de fichiers sécurisés et aux outils de détection de phishing.",
+                aboutParagraph3: "En parallèle de mes études, je m’investis dans le mentorat STEM, les activités étudiantes et l’accompagnement de projets technologiques.",
+                educationLabel: "Formation", educationShort: "Génie informatique, Université SRM AP",
+                exchangeLabel: "Échange académique", exchangeShort: "INTI International University, Malaisie · Automne 2025",
+                phoneLabel: "Téléphone", emailLabel: "E-mail", skillsTitle: "Compétences techniques",
+                skillLanguages: "Langages", skillWeb: "Web / développement", skillDatabases: "Bases de données",
+                skillTools: "Outils et systèmes", skillErp: "ERP et métier", skillSoft: "Transversales",
+                experienceTitle: "Expérience & formation", experienceLead: "Mon expérience professionnelle et mon parcours académique.",
+                workTitle: "Expérience professionnelle", erpTitle: "Consultant en solutions ERP", currentRole: "En cours",
+                erpDescription: "Conseil en implémentation et optimisation de systèmes ERP avec SAP S/4HANA pour rationaliser les processus métier et améliorer l’efficacité opérationnelle.",
+                erpBullet1: "Analyse des besoins métier et personnalisation des modules ERP",
+                erpBullet2: "Intégration des fonctions finance, inventaire, RH et chaîne d’approvisionnement",
+                erpBullet3: "Formation des utilisateurs et rédaction de documentation pour faciliter l’adoption",
+                internTitle: "Stagiaire", internDescription: "Découverte de l’ingénierie et de la fabrication de câbles réseau, ainsi que du fonctionnement d’un datacenter : matériel, infrastructure et flux opérationnels.",
+                educationTitle: "Formation", degreeTitle: "Bachelor en génie informatique", degreeDate: "Depuis octobre 2023 · En cours",
+                degreeDescription: "Semestre d’échange à INTI International University, Malaisie (automne 2025).",
+                course1: "Programmation orientée objet avec C++", course2: "Structures de données et algorithmes",
+                course3: "Conception et analyse d’algorithmes", course4: "Technologies web, bases de données et spécialisation full stack",
+                projectsTitle: "Projets", projectsLead: "Projets de recherche appliquée, de cybersécurité et d’ingénierie logicielle.",
+                articlesLabel: "Articles", publicationsTitle: "Publications",
+                publicationsLead: "Articles publiés sur Hashnode et travaux réalisés avec Next Tech Lab et Arcana.",
+                hashnodeButton: "Voir Hashnode", publicationDate1: "Hashnode · 3 février",
+                publicationDate2: "Next Tech Lab · Arcana · 10 juin 2025", publicationDate3: "Next Tech Lab · Arcana · 30 mai 2025",
+                certificationsTitle: "Certifications & distinctions", certificationsLead: "Certifications professionnelles et reconnaissance académique.",
+                leadershipTitle: "Leadership & activités", leadershipLead: "Engagement étudiant, mentorat et projets à impact communautaire.",
+                leadership1Title: "Développement web pour Healthmour",
+                leadership1Org: "ONG · Mali",
+                leadership1Description: "Conception et développement du site officiel de l’ONG pour soutenir les initiatives de santé communautaire et renforcer la visibilité de ses programmes d’aide.",
+                leadership2Title: "Adjoint au Conseil des Sports",
+                leadership2Org: "Université SRM AP",
+                leadership2Description: "Élu pour coordonner les activités sportives, gérer les événements et accompagner les étudiants-athlètes.",
+                leadership3Org: "Donilab · Mali", leadership3Title: "Défenseur de l’éducation STEM", leadership3Description: "Mentorat de plus de 50 étudiants en programmation et robotique.",
+                leadership4Org: "Singularity Lab · Next Tech Lab", leadership4Title: "Membre et ancien mentor", leadership4Description: "Encadrement d’étudiants en cybersécurité et exploration de nouvelles technologies de pointe.",
+                contactTitle: "Contact", contactLead: "Pour une collaboration ou une opportunité, contactez-moi par e-mail ou retrouvez-moi en ligne.",
+                contactDetails: "Coordonnées", contactOutro: "Je suis ouvert aux opportunités, aux collaborations et aux échanges autour des technologies.",
+                navHome: "Accueil", navAbout: "À propos", navExperience: "Parcours", navProjects: "Projets",
+                navCertifications: "Distinctions", navLeadership: "Engagements", navWriting: "Publications", navContact: "Contact",
+                footerRole: "Étudiant en génie informatique", footerRights: "Tous droits réservés."
+            },
+            en: {
+                heroRole: "Computer Engineering Student",
+                heroIntro: "Computer science student at SRM AP, ERP solutions consultant, and developer interested in cybersecurity, distributed systems, and innovation.",
+                heroProjects: "Explore my projects", heroContact: "Get in touch",
+                aboutTitle: "About", aboutLead: "My path through computer science, systems engineering, and practical technology.",
+                aboutHeading: "Profile",
+                aboutParagraph1: "I’m Mohamed Youssouf Keita, a computer engineering student at SRM AP University. My experience spans ERP consulting, software development, network infrastructure, and cybersecurity.",
+                aboutParagraph2: "I enjoy building practical solutions, from optimizing business processes with SAP S/4HANA to secure file-sharing systems and phishing detection tools.",
+                aboutParagraph3: "Alongside my studies, I contribute to STEM mentoring, student activities, and technology projects.",
+                educationLabel: "Education", educationShort: "Computer Engineering, SRM AP University",
+                exchangeLabel: "Academic exchange", exchangeShort: "INTI International University, Malaysia · Fall 2025",
+                phoneLabel: "Phone", emailLabel: "Email", skillsTitle: "Technical Skills",
+                skillLanguages: "Languages", skillWeb: "Web development", skillDatabases: "Databases",
+                skillTools: "Tools & systems", skillErp: "ERP & business", skillSoft: "Professional skills",
+                experienceTitle: "Experience & Education", experienceLead: "My professional experience and academic background.",
+                workTitle: "Professional Experience", erpTitle: "ERP Solutions Consultant", currentRole: "Present",
+                erpDescription: "Advise organizations on implementing and optimizing SAP S/4HANA ERP systems to streamline business processes and improve operational efficiency.",
+                erpBullet1: "Analyze business requirements and customize ERP modules",
+                erpBullet2: "Integrate finance, inventory, HR, and supply-chain functions",
+                erpBullet3: "Deliver user training and documentation to support adoption",
+                internTitle: "Intern", internDescription: "Gained exposure to network cable engineering and manufacturing, as well as data-center operations, hardware management, infrastructure optimization, and operational workflows.",
+                educationTitle: "Education", degreeTitle: "Bachelor’s in Computer Engineering", degreeDate: "October 2023 · In progress",
+                degreeDescription: "Academic exchange semester at INTI International University, Malaysia (Fall 2025).",
+                course1: "Object-Oriented Programming with C++", course2: "Data Structures and Algorithms",
+                course3: "Algorithm Design and Analysis", course4: "Web Technologies, Database Management Systems, and Full-Stack Specialization",
+                projectsTitle: "Projects", projectsLead: "Applied research, cybersecurity, and software engineering projects.",
+                articlesLabel: "Articles", publicationsTitle: "Publications",
+                publicationsLead: "Articles published on Hashnode and work completed with Next Tech Lab and Arcana.",
+                hashnodeButton: "Visit Hashnode", publicationDate1: "Hashnode · February 3",
+                publicationDate2: "Next Tech Lab · Arcana · June 10, 2025", publicationDate3: "Next Tech Lab · Arcana · May 30, 2025",
+                certificationsTitle: "Certifications & Awards", certificationsLead: "Professional certifications and academic recognition.",
+                leadershipTitle: "Leadership & Activities", leadershipLead: "Student leadership, mentoring, and community-focused projects.",
+                leadership1Org: "NGO · Mali", leadership1Title: "Web Development for Healthmour",
+                leadership1Description: "Designed and built the NGO’s official website to support community health initiatives and increase the visibility of its aid programs.",
+                leadership2Org: "SRM AP University", leadership2Title: "Deputy, Sports Council", leadership2Description: "Elected to coordinate sports activities, manage events, and mentor student athletes.",
+                leadership3Org: "Donilab · Mali", leadership3Title: "STEM Education Advocate", leadership3Description: "Mentored more than 50 students in programming and robotics.",
+                leadership4Org: "Singularity Lab · Next Tech Lab", leadership4Title: "Member and Former Mentor", leadership4Description: "Mentored cybersecurity students and explored emerging technologies.",
+                contactTitle: "Contact", contactLead: "For collaborations or opportunities, reach out by email or connect with me online.",
+                contactDetails: "Contact Details", contactOutro: "I’m open to opportunities, collaborations, and conversations about technology.",
+                navHome: "Home", navAbout: "About", navExperience: "Experience", navProjects: "Projects",
+                navCertifications: "Awards", navLeadership: "Leadership", navWriting: "Publications", navContact: "Contact",
+                footerRole: "Computer Engineering Student", footerRights: "All rights reserved."
+            }
+        };
+
+        let currentLanguage = 'fr';
+
+        function setLanguage(language) {
+            currentLanguage = language;
+            document.documentElement.lang = language;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const translation = translations[language][element.dataset.i18n];
+                if (translation) element.textContent = translation;
+            });
+            const languageToggle = document.querySelector('#language-toggle');
+            languageToggle.textContent = language === 'fr' ? 'EN' : 'FR';
+            languageToggle.setAttribute('aria-label', language === 'fr' ? 'Switch to English' : 'Passer en français');
+            document.title = language === 'fr' ? 'Mohamed Youssouf Keita - Portfolio' : 'Mohamed Youssouf Keita - Portfolio';
+            document.querySelector('header-component a[aria-label="Go to homepage"]')?.setAttribute('aria-label', language === 'fr' ? 'Retour à l’accueil' : 'Go to homepage');
+            renderProjects(language);
+            renderCertifications(language);
+            try {
+                localStorage.setItem('portfolio-language', language);
+            } catch (error) {
+                // Language switching still works when browser storage is unavailable.
+            }
+        }
+
+        function renderProjects(language) {
+            const projectGrid = document.querySelector('#project-grid');
+            projectGrid.innerHTML = portfolioData.projects.map(project => `
+                <article class="project-card reveal is-visible bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    ${project.image ? `<div class="h-56 overflow-hidden"><img src="${project.image}" alt="${project.imageAlt}" loading="lazy" class="w-full h-full object-cover"></div>` : ''}
+                    <div class="p-6">
+                        ${project.organization ? `<p class="text-sm font-semibold text-primary mb-2">${language === 'en' ? project.organizationEn || project.organization : project.organization}</p>` : ''}
+                        <h3 class="text-xl font-semibold text-dark mb-2">${language === 'en' ? project.titleEn : project.title}</h3>
+                        <p class="text-gray-700 mb-4">${language === 'en' ? project.descriptionEn : project.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.technologies.map(technology => `<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded">${technology}</span>`).join('')}
+                        </div>
+                        ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-primary hover:text-secondary font-medium">View project <i class="fas fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i></a>` : ''}
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderProfileImage() {
+            document.querySelector('#profile-image').src = portfolioData.images.profile;
+        }
+
+        function renderProfileLinks() {
+            document.querySelectorAll('[data-profile-link]').forEach(link => {
+                const profileUrl = portfolioData.links[link.dataset.profileLink];
+                if (profileUrl) link.href = profileUrl;
+            });
+        }
+
+        function renderCertifications(language) {
+            const certificationGrid = document.querySelector('#certification-grid');
+            certificationGrid.innerHTML = portfolioData.certifications.map(certificate => `
+            <article class="reveal is-visible bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-lg">
+                    ${certificate.image ? `<div class="certificate-image overflow-hidden"><img src="${certificate.image}" alt="${certificate.imageAlt}" loading="lazy"></div>` : ''}
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-100 text-primary rounded-full mr-4 shrink-0">
+                                <i class="${certificate.icon} text-xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-dark">${language === 'en' ? certificate.titleEn : certificate.title}</h3>
+                        </div>
+                        <p class="text-gray-700">${language === 'en' ? certificate.descriptionEn : certificate.description}</p>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderPublication() {
+            const publicationUrl = portfolioData.hashnodePublicationUrl.trim();
+            if (!publicationUrl) return;
+
+            document.querySelector('#hashnode-link').href = publicationUrl;
+            document.querySelector('#writing').hidden = false;
+            document.querySelectorAll('a[href="#writing"]').forEach(link => {
+                link.hidden = false;
+            });
+        }
+
         class Header extends HTMLElement {
             connectedCallback() {
                 this.innerHTML = `
@@ -576,35 +728,42 @@
                         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex items-center justify-between h-20">
                                 <div class="flex items-center">
-                                    <a href="#" class="text-2xl font-bold text-primary">
-                                        <span class="text-dark">Mohamed</span> Keita
+                                    <a href="#hero" aria-label="Go to homepage" title="Home" class="w-10 h-10 flex items-center justify-center text-primary hover:text-accent transition duration-300">
+                                        <i class="fas fa-house text-xl" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 
                                 <nav class="hidden md:block">
                                     <ul class="flex space-x-8">
-                                        <li><a href="#hero" class="text-gray-700 hover:text-primary font-medium transition duration-300">Home</a></li>
-                                        <li><a href="#about" class="text-gray-700 hover:text-primary font-medium transition duration-300">About</a></li>
-                                        <li><a href="#experience" class="text-gray-700 hover:text-primary font-medium transition duration-300">Experience</a></li>
-                                        <li><a href="#projects" class="text-gray-700 hover:text-primary font-medium transition duration-300">Projects</a></li>
-                                        <li><a href="#certifications" class="text-gray-700 hover:text-primary font-medium transition duration-300">Certifications</a></li>
-                                        <li><a href="#contact" class="text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
+                                        <li><a href="#hero" data-i18n="navHome" class="text-gray-700 hover:text-primary font-medium transition duration-300">Accueil</a></li>
+                                        <li><a href="#about" data-i18n="navAbout" class="text-gray-700 hover:text-primary font-medium transition duration-300">À propos</a></li>
+                                        <li><a href="#experience" data-i18n="navExperience" class="text-gray-700 hover:text-primary font-medium transition duration-300">Parcours</a></li>
+                                        <li><a href="#projects" data-i18n="navProjects" class="text-gray-700 hover:text-primary font-medium transition duration-300">Projets</a></li>
+                                        <li><a href="#certifications" data-i18n="navCertifications" class="text-gray-700 hover:text-primary font-medium transition duration-300">Distinctions</a></li>
+                                        <li><a href="#leadership" data-i18n="navLeadership" class="text-gray-700 hover:text-primary font-medium transition duration-300">Engagements</a></li>
+                                        <li><a href="#writing" data-i18n="navWriting" hidden class="text-gray-700 hover:text-primary font-medium transition duration-300">Publications</a></li>
+                                        <li><a href="#contact" data-i18n="navContact" class="text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
                                     </ul>
                                 </nav>
                                 
-                                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary focus:outline-none">
-                                    <i class="fas fa-bars text-2xl"></i>
-                                </button>
+                                <div class="flex items-center gap-3">
+                                    <button id="language-toggle" type="button" aria-label="Switch to English" class="px-3 py-2 border border-gray-500 rounded text-sm font-semibold text-primary hover:border-primary transition">EN</button>
+                                    <button id="mobile-menu-button" aria-label="Open navigation menu" class="md:hidden text-gray-700 hover:text-primary focus:outline-none">
+                                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                             
                             <div id="mobile-menu" class="md:hidden hidden pb-4">
                                 <ul class="flex flex-col space-y-4">
-                                    <li><a href="#hero" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Home</a></li>
-                                    <li><a href="#about" class="block text-gray-700 hover:text-primary font-medium transition duration-300">About</a></li>
-                                    <li><a href="#experience" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Experience</a></li>
-                                    <li><a href="#projects" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Projects</a></li>
-                                    <li><a href="#certifications" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Certifications</a></li>
-                                    <li><a href="#contact" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
+                                    <li><a href="#hero" data-i18n="navHome" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Accueil</a></li>
+                                    <li><a href="#about" data-i18n="navAbout" class="block text-gray-700 hover:text-primary font-medium transition duration-300">À propos</a></li>
+                                    <li><a href="#experience" data-i18n="navExperience" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Parcours</a></li>
+                                    <li><a href="#projects" data-i18n="navProjects" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Projets</a></li>
+                                    <li><a href="#certifications" data-i18n="navCertifications" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Distinctions</a></li>
+                                    <li><a href="#leadership" data-i18n="navLeadership" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Engagements</a></li>
+                                    <li><a href="#writing" data-i18n="navWriting" hidden class="block text-gray-700 hover:text-primary font-medium transition duration-300">Publications</a></li>
+                                    <li><a href="#contact" data-i18n="navContact" class="block text-gray-700 hover:text-primary font-medium transition duration-300">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -640,21 +799,15 @@
                             <div class="flex flex-col md:flex-row justify-between items-center">
                                 <div class="mb-6 md:mb-0">
                                     <h2 class="text-2xl font-bold mb-2">Mohamed Youssouf Keita</h2>
-                                    <p class="text-gray-400">Computer Science Student & Aspiring Cybersecurity Specialist</p>
+                                    <p data-i18n="footerRole" class="text-gray-400">Étudiant en génie informatique</p>
                                 </div>
                                 
                                 <div class="flex space-x-4">
-                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                    <a href="https://www.linkedin.com/in/mohamed-youssouf-keita-myhack" data-profile-link="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="text-gray-400 hover:text-white transition duration-300">
                                         <i class="fab fa-linkedin-in text-xl"></i>
                                     </a>
-                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                                    <a href="https://github.com/Mohack-max" data-profile-link="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="text-gray-400 hover:text-white transition duration-300">
                                         <i class="fab fa-github text-xl"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                                        <i class="fab fa-twitter text-xl"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                                        <i class="fab fa-youtube text-xl"></i>
                                     </a>
                                 </div>
                             </div>
@@ -663,14 +816,14 @@
                             
                             <div class="flex flex-col md:flex-row justify-between items-center">
                                 <p class="text-gray-400 mb-4 md:mb-0">
-                                    &copy; ${new Date().getFullYear()} Mohamed Youssouf Keita. All rights reserved.
+                                                    &copy; ${new Date().getFullYear()} Mohamed Youssouf Keita. <span data-i18n="footerRights">Tous droits réservés.</span>
                                 </p>
                                 
                                 <ul class="flex flex-wrap justify-center gap-4">
-                                    <li><a href="#hero" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                                    <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
-                                    <li><a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
-                                    <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                                    <li><a href="#hero" data-i18n="navHome" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                                    <li><a href="#about" data-i18n="navAbout" class="text-gray-400 hover:text-white transition duration-300">À propos</a></li>
+                                    <li><a href="#projects" data-i18n="navProjects" class="text-gray-400 hover:text-white transition duration-300">Projets</a></li>
+                                    <li><a href="#contact" data-i18n="navContact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -682,6 +835,36 @@
         // Register custom elements
         customElements.define('header-component', Header);
         customElements.define('footer-component', Footer);
+
+        document.querySelector('#language-toggle').addEventListener('click', () => {
+            setLanguage(currentLanguage === 'fr' ? 'en' : 'fr');
+        });
+
+        renderProfileImage();
+        renderProfileLinks();
+        renderPublication();
+
+        let savedLanguage = 'fr';
+        try {
+            savedLanguage = localStorage.getItem('portfolio-language') || 'fr';
+        } catch (error) {
+            savedLanguage = 'fr';
+        }
+        setLanguage(savedLanguage === 'en' ? 'en' : 'fr');
+
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.project-card, #experience .bg-white, #certifications .bg-white').forEach(element => {
+            element.classList.add('reveal');
+            revealObserver.observe(element);
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
