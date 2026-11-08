@@ -4,7 +4,7 @@ This is a static portfolio built with HTML, CSS, and browser-side JavaScript. It
 
 The navbar language button switches the portfolio between French and English. The selected language is remembered in the visitor's browser using local storage; French is the default when no preference has been saved.
 
-Project cards tilt and lift as visitors move their pointer over them. A fixed music player includes a live frequency equalizer and plays an optional, original cinematic pop loop with a dramatic melody, chords, bass, and beat. Audio is synthesized in the browser and starts only after the visitor clicks play.
+Project cards tilt and lift as visitors move their pointer over them. A fixed music player offers three original synthesized styles—cinematic pop, lo-fi chill, and upbeat electro—plus the local tracks `Rihanna - Diamonds.mp3` and `WIZKID  - OJUELEGBA.mp3` under `assets/music/`. The live frequency equalizer works for both synthesized and file-based tracks. Audio starts only after the visitor clicks play. Additional audio files can be added under `assets/music/` if they are original, licensed, or otherwise cleared for use on the site.
 
 The contact section includes an appointment-request form submitted through FormSubmit without opening the visitor's email app. FormSubmit sends submissions to `mohamedyoussoufkeita4@gmail.com`, processes the submitted contact and appointment details, and retains submissions for up to 30 days. Confirm the FormSubmit activation email before relying on delivery. The form reports successful delivery to FormSubmit, but appointment availability still needs to be confirmed manually.
 

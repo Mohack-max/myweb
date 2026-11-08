@@ -203,15 +203,35 @@
             transform: scale(1.04);
         }
         .music-player {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem;
+            display: grid;
+            width: 21rem;
+            gap: 0.5rem;
+            padding: 0.75rem;
             border: 1px solid rgba(96, 165, 250, 0.32);
-            border-radius: 9999px;
+            border-radius: 1rem;
             background: rgba(17, 23, 25, 0.94);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 22px rgba(96, 165, 250, 0.18);
             backdrop-filter: blur(12px);
+        }
+        .music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+        #music-track {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 0.625rem;
+            background: var(--surface-muted);
+            padding: 0.5rem 0.65rem;
+            color: var(--text);
+            font: inherit;
+            font-size: 0.8rem;
+        }
+        #music-track:focus {
+            border-color: #60A5FA;
+            outline: 2px solid rgba(96, 165, 250, 0.24);
         }
         #music-visualizer {
             display: flex;
@@ -245,13 +265,15 @@
             50% { transform: scale(1.2); }
         }
         @media (max-width: 420px) {
+            .music-player {
+                width: min(21rem, calc(100vw - 2rem));
+                max-width: calc(100vw - 2rem);
+                gap: 0.35rem;
+                padding: 0.55rem;
+            }
             #music-visualizer {
                 width: clamp(3rem, 24vw, 5rem);
                 flex: 1 1 auto;
-            }
-            .music-player {
-                max-width: calc(100vw - 2rem);
-                gap: 0.4rem;
             }
             #music-toggle {
                 gap: 0.375rem;
@@ -640,11 +662,21 @@
     </main>
     
     <div class="music-player fixed bottom-5 right-5 z-50">
-        <div id="music-visualizer" role="img" aria-label="Music frequency visualizer, idle"></div>
-        <button id="music-toggle" type="button" aria-pressed="false" class="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-3 font-semibold text-white transition hover:-translate-y-1 hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300">
-            <i class="music-icon fas fa-music" aria-hidden="true"></i>
-            <span data-i18n="musicPlay">Play some music</span>
-        </button>
+        <label for="music-track" data-i18n="musicTrackLabel" class="sr-only">Choose a track</label>
+        <select id="music-track" aria-label="Choose a track">
+            <option value="cinematic" data-i18n="musicTrackCinematic">Cinematic Pop</option>
+            <option value="lofi" data-i18n="musicTrackLofi">Lo-fi Chill</option>
+            <option value="neon" data-i18n="musicTrackNeon">Neon Pulse</option>
+            <option value="diamonds" data-i18n="musicTrackDiamonds">Rihanna — Diamonds</option>
+            <option value="ojuelegba" data-i18n="musicTrackOjuelegba">Wizkid — Ojuelegba</option>
+        </select>
+        <div class="music-controls">
+            <div id="music-visualizer" role="img" aria-label="Music frequency visualizer, idle"></div>
+            <button id="music-toggle" type="button" aria-pressed="false" class="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-3 font-semibold text-white transition hover:-translate-y-1 hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300">
+                <i class="music-icon fas fa-music" aria-hidden="true"></i>
+                <span data-i18n="musicPlay">Play some music</span>
+            </button>
+        </div>
     </div>
     <footer-component></footer-component>
 
@@ -768,6 +800,9 @@
                 projectsTitle: "Projets", projectsLead: "Projets de recherche appliquée, de cybersécurité et d’ingénierie logicielle.",
                 musicPlay: "Lancer la musique", musicPause: "Mettre en pause", musicUnavailable: "Audio indisponible",
                 musicVisualizerPlaying: "Égaliseur audio animé", musicVisualizerIdle: "Égaliseur audio en pause",
+                musicTrackLabel: "Choisir une ambiance musicale",
+                musicTrackCinematic: "Pop cinématique originale", musicTrackLofi: "Lo-fi relaxant original", musicTrackNeon: "Électro énergique originale",
+                musicTrackDiamonds: "Rihanna — Diamonds", musicTrackOjuelegba: "Wizkid — Ojuelegba",
                 articlesLabel: "Articles", publicationsTitle: "Publications",
                 publicationsLead: "Articles publiés sur Hashnode et travaux réalisés avec Next Tech Lab et Arcana.",
                 hashnodeButton: "Voir Hashnode", publicationDate1: "Hashnode · 3 février",
@@ -825,6 +860,9 @@
                 projectsTitle: "Projects", projectsLead: "Applied research, cybersecurity, and software engineering projects.",
                 musicPlay: "Play ambient music", musicPause: "Pause music", musicUnavailable: "Audio unavailable",
                 musicVisualizerPlaying: "Animated audio equalizer", musicVisualizerIdle: "Audio equalizer paused",
+                musicTrackLabel: "Choose a music style",
+                musicTrackCinematic: "Original cinematic pop", musicTrackLofi: "Original lo-fi chill", musicTrackNeon: "Original upbeat electro",
+                musicTrackDiamonds: "Rihanna — Diamonds", musicTrackOjuelegba: "Wizkid — Ojuelegba",
                 articlesLabel: "Articles", publicationsTitle: "Publications",
                 publicationsLead: "Articles published on Hashnode and work completed with Next Tech Lab and Arcana.",
                 hashnodeButton: "Visit Hashnode", publicationDate1: "Hashnode · February 3",
@@ -865,6 +903,7 @@
             const languageToggle = document.querySelector('#language-toggle');
             languageToggle.textContent = language === 'fr' ? 'EN' : 'FR';
             languageToggle.setAttribute('aria-label', language === 'fr' ? 'Switch to English' : 'Passer en français');
+            document.querySelector('#music-track').setAttribute('aria-label', translations[language].musicTrackLabel);
             updateMusicButton();
             document.title = language === 'fr' ? 'Mohamed Youssouf Keita - Portfolio' : 'Mohamed Youssouf Keita - Portfolio';
             document.querySelector('header-component a[aria-label="Go to homepage"]')?.setAttribute('aria-label', language === 'fr' ? 'Retour à l’accueil' : 'Go to homepage');
@@ -916,22 +955,46 @@
         let nextMusicStepTime = 0;
         let musicNoiseBuffer;
         let musicAnalyser;
+        let musicMediaSource;
         let visualizerFrame;
         let musicError = false;
-        const musicTempo = 112;
-        const musicStepDuration = 60 / musicTempo / 2;
-        const musicChords = [
-            [45, 48, 52],
-            [41, 45, 48],
-            [36, 40, 43],
-            [43, 47, 50]
-        ];
-        const musicMelody = [
-            69, null, 72, 76, null, 72, 79, null,
-            77, null, 72, 69, null, 72, 77, null,
-            76, null, 79, 84, null, 79, 76, null,
-            74, null, 79, 83, null, 79, 74, null
-        ];
+        let currentMusicTrack = 'cinematic';
+        const uploadedMusicTracks = {
+            diamonds: 'assets/music/Rihanna%20-%20Diamonds.mp3',
+            ojuelegba: 'assets/music/WIZKID%20%20-%20OJUELEGBA.mp3'
+        };
+        const musicAudio = new Audio();
+        musicAudio.loop = true;
+        musicAudio.preload = 'none';
+        const musicTracks = {
+            cinematic: {
+                tempo: 112,
+                chords: [[45, 48, 52], [41, 45, 48], [36, 40, 43], [43, 47, 50]],
+                melody: [69, null, 72, 76, null, 72, 79, null, 77, null, 72, 69, null, 72, 77, null, 76, null, 79, 84, null, 79, 76, null, 74, null, 79, 83, null, 79, 74, null],
+                padWave: 'triangle', padVolume: 0.018, padCutoff: 1200, padOctave: 12,
+                bassWave: 'sine', bassVolume: 0.13, bassCutoff: 260,
+                leadWave: 'triangle', leadVolume: 0.065, leadCutoff: 3200, leadDuration: 0.23,
+                octaveVolume: 0.012, kickVolume: 0.28, backbeatVolume: 0.1, hatVolume: 0.025
+            },
+            lofi: {
+                tempo: 82,
+                chords: [[48, 51, 55, 58], [43, 46, 50, 53], [45, 48, 52, 55], [41, 45, 48, 51]],
+                melody: [67, null, null, 70, null, 74, null, 70, 65, null, 69, null, 72, null, 69, null, 67, null, 72, null, 74, null, 72, 69, 65, null, 69, null, 72, null, 69, null],
+                padWave: 'sine', padVolume: 0.014, padCutoff: 850, padOctave: 12,
+                bassWave: 'triangle', bassVolume: 0.09, bassCutoff: 210,
+                leadWave: 'sine', leadVolume: 0.042, leadCutoff: 1800, leadDuration: 0.34,
+                octaveVolume: 0.006, kickVolume: 0.15, backbeatVolume: 0.045, hatVolume: 0.012
+            },
+            neon: {
+                tempo: 124,
+                chords: [[45, 48, 52], [41, 45, 48], [48, 52, 55], [43, 47, 50]],
+                melody: [76, 76, null, 79, 83, null, 79, 86, 84, null, 79, 76, 79, null, 84, null, 83, 83, null, 86, 88, null, 86, 83, 79, null, 83, 86, 83, null, 79, null],
+                padWave: 'sawtooth', padVolume: 0.009, padCutoff: 1500, padOctave: 12,
+                bassWave: 'square', bassVolume: 0.075, bassCutoff: 360,
+                leadWave: 'sawtooth', leadVolume: 0.035, leadCutoff: 2600, leadDuration: 0.16,
+                octaveVolume: 0.008, kickVolume: 0.2, backbeatVolume: 0.07, hatVolume: 0.04
+            }
+        };
         const visualizerBarCount = 24;
         const visualizer = document.querySelector('#music-visualizer');
         visualizer.innerHTML = '<span></span>'.repeat(visualizerBarCount);
@@ -996,22 +1059,24 @@
         }
 
         function scheduleMusicStep(step, start) {
+            const track = musicTracks[currentMusicTrack];
             const stepInBar = step % 8;
-            const chord = musicChords[Math.floor(step / 8) % musicChords.length];
-            const melodyNote = musicMelody[step];
+            const chord = track.chords[Math.floor(step / 8) % track.chords.length];
+            const melodyNote = track.melody[step];
+            const stepDuration = 60 / track.tempo / 2;
 
             if (stepInBar === 0) {
-                chord.forEach(note => scheduleMusicTone(note + 12, start, musicStepDuration * 7.5, 'triangle', 0.018, 1200));
+                chord.forEach(note => scheduleMusicTone(note + track.padOctave, start, stepDuration * 7.5, track.padWave, track.padVolume, track.padCutoff));
             }
             if (step % 2 === 0) {
-                scheduleMusicTone(chord[0] - 12, start, 0.28, 'sine', 0.13, 260);
+                scheduleMusicTone(chord[0] - 12, start, 0.28, track.bassWave, track.bassVolume, track.bassCutoff);
                 if (stepInBar === 0 || stepInBar === 4) {
                     const kick = musicContext.createOscillator();
                     const kickEnvelope = musicContext.createGain();
                     kick.type = 'sine';
                     kick.frequency.setValueAtTime(125, start);
                     kick.frequency.exponentialRampToValueAtTime(42, start + 0.16);
-                    kickEnvelope.gain.setValueAtTime(0.28, start);
+                    kickEnvelope.gain.setValueAtTime(track.kickVolume, start);
                     kickEnvelope.gain.exponentialRampToValueAtTime(0.0001, start + 0.2);
                     kick.connect(kickEnvelope);
                     kickEnvelope.connect(musicAnalyser);
@@ -1022,22 +1087,23 @@
                         kickEnvelope.disconnect();
                     }, { once: true });
                 } else {
-                    scheduleMusicNoise(start, 0.16, 0.1, 1400);
+                    scheduleMusicNoise(start, 0.16, track.backbeatVolume, 1400);
                 }
             }
-            if (step % 2 === 1) scheduleMusicNoise(start, 0.045, 0.025, 7500);
+            if (step % 2 === 1) scheduleMusicNoise(start, 0.045, track.hatVolume, 7500);
             if (melodyNote !== null) {
-                scheduleMusicTone(melodyNote, start, 0.23, 'triangle', 0.065, 3200);
-                scheduleMusicTone(melodyNote + 12, start, 0.12, 'sine', 0.012, 5000);
+                scheduleMusicTone(melodyNote, start, track.leadDuration, track.leadWave, track.leadVolume, track.leadCutoff);
+                scheduleMusicTone(melodyNote + 12, start, 0.12, 'sine', track.octaveVolume, 5000);
             }
         }
 
         function scheduleMusic() {
             const scheduleUntil = musicContext.currentTime + 0.12;
+            const track = musicTracks[currentMusicTrack];
             while (nextMusicStepTime < scheduleUntil) {
                 scheduleMusicStep(nextMusicStep, nextMusicStepTime);
-                nextMusicStep = (nextMusicStep + 1) % musicMelody.length;
-                nextMusicStepTime += musicStepDuration;
+                nextMusicStep = (nextMusicStep + 1) % track.melody.length;
+                nextMusicStepTime += 60 / track.tempo / 2;
             }
         }
 
@@ -1100,26 +1166,48 @@
                     }
                 }
 
+                if (uploadedMusicTracks[currentMusicTrack]) {
+                    if (!musicMediaSource) {
+                        musicMediaSource = musicContext.createMediaElementSource(musicAudio);
+                        musicMediaSource.connect(musicAnalyser);
+                    }
+                    const selectedTrackUrl = new URL(uploadedMusicTracks[currentMusicTrack], document.baseURI).href;
+                    if (musicAudio.src !== selectedTrackUrl) {
+                        musicAudio.src = selectedTrackUrl;
+                    }
+                }
+
                 if (musicContext.state === 'suspended') {
                     await musicContext.resume();
                 }
 
                 if (button.getAttribute('aria-pressed') === 'true') {
+                    musicAudio.pause();
                     await musicContext.suspend();
                     window.clearInterval(musicTimer);
                     musicTimer = undefined;
                     button.setAttribute('aria-pressed', 'false');
                     stopMusicVisualizer();
                 } else {
-                    nextMusicStepTime = musicContext.currentTime + 0.05;
-                    scheduleMusic();
-                    musicTimer = window.setInterval(scheduleMusic, 25);
+                    if (uploadedMusicTracks[currentMusicTrack]) {
+                        await musicAudio.play();
+                    } else {
+                        nextMusicStepTime = musicContext.currentTime + 0.05;
+                        scheduleMusic();
+                        musicTimer = window.setInterval(scheduleMusic, 25);
+                    }
                     button.setAttribute('aria-pressed', 'true');
                     updateMusicVisualizer();
                 }
                 updateMusicButton();
             } catch (error) {
                 console.error('Unable to play ambient music:', error);
+                musicAudio.pause();
+                window.clearInterval(musicTimer);
+                musicTimer = undefined;
+                if (musicContext && musicContext.state === 'running') {
+                    await musicContext.suspend();
+                }
                 musicError = true;
                 button.querySelector('[data-i18n="musicPlay"]').textContent = translations[currentLanguage].musicUnavailable;
                 button.setAttribute('aria-label', translations[currentLanguage].musicUnavailable);
@@ -1131,6 +1219,23 @@
         }
 
         document.querySelector('#music-toggle').addEventListener('click', toggleMusic);
+        document.querySelector('#music-track').addEventListener('change', async event => {
+            const button = document.querySelector('#music-toggle');
+            if (button.getAttribute('aria-pressed') === 'true') {
+                window.clearInterval(musicTimer);
+                musicTimer = undefined;
+                musicAudio.pause();
+                if (musicContext && musicContext.state === 'running') {
+                    await musicContext.suspend();
+                }
+                button.setAttribute('aria-pressed', 'false');
+                stopMusicVisualizer();
+            }
+
+            currentMusicTrack = event.target.value;
+            nextMusicStep = 0;
+            updateMusicButton();
+        });
 
         function renderProfileImage() {
             document.querySelector('#profile-image').src = portfolioData.images.profile;
