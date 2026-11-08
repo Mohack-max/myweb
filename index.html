@@ -203,82 +203,133 @@
             transform: scale(1.04);
         }
         .music-player {
-            display: grid;
-            width: 21rem;
-            gap: 0.5rem;
-            padding: 0.75rem;
-            border: 1px solid rgba(96, 165, 250, 0.32);
-            border-radius: 1rem;
-            background: rgba(17, 23, 25, 0.94);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 22px rgba(96, 165, 250, 0.18);
-            backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: min(19rem, 100%);
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem auto 0;
         }
-        .music-controls {
+        .music-bubble {
+            position: relative;
+            isolation: isolate;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
+            justify-content: center;
+            flex: 0 0 3.75rem;
+            width: 3.75rem;
+            height: 3.75rem;
+            overflow: visible;
+            border: 1px solid rgba(186, 239, 255, 0.75);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 28%, rgba(196, 247, 255, 0.95), rgba(86, 190, 231, 0.72) 24%, rgba(38, 104, 170, 0.76) 62%, rgba(29, 52, 100, 0.88));
+            color: #fff;
+            box-shadow: 0 0 18px rgba(106, 211, 255, 0.5), inset -6px -8px 18px rgba(14, 31, 83, 0.35), inset 4px 5px 14px rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: box-shadow 220ms ease;
+        }
+        .music-bubble::before,
+        .music-bubble::after {
+            position: absolute;
+            z-index: -1;
+            border: 1px solid rgba(173, 235, 255, 0.38);
+            border-radius: 50%;
+            content: "";
+            inset: -7px;
+            transition: opacity 220ms ease, transform 220ms ease;
+        }
+        .music-bubble::after {
+            inset: -13px;
+            opacity: 0.55;
+        }
+        .music-bubble:hover,
+        .music-bubble:focus-visible {
+            box-shadow: 0 0 28px rgba(106, 211, 255, 0.72), inset -6px -8px 18px rgba(14, 31, 83, 0.35), inset 4px 5px 14px rgba(255, 255, 255, 0.4);
+        }
+        .music-bubble:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 7px;
+        }
+        .music-bubble[aria-pressed="true"] {
+            animation: music-orb-glow 2.4s ease-in-out infinite;
+        }
+        .music-bubble[aria-pressed="true"]::before {
+            animation: music-orb-ripple 2.4s ease-out infinite;
+        }
+        .music-bubble[aria-pressed="true"]::after {
+            animation: music-orb-ripple 2.4s 0.8s ease-out infinite;
+        }
+        @keyframes music-orb-glow {
+            50% { box-shadow: 0 0 32px rgba(106, 211, 255, 0.82), inset -6px -8px 18px rgba(14, 31, 83, 0.35), inset 4px 5px 14px rgba(255, 255, 255, 0.4); }
+        }
+        @keyframes music-orb-ripple {
+            70%, 100% { opacity: 0; transform: scale(1.22); }
+        }
+        .music-icon {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 5px rgba(13, 35, 83, 0.55);
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+        #music-visualizer {
+            position: absolute;
+            inset: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            opacity: 0.25;
+            transition: opacity 180ms ease;
+        }
+        .music-bubble[aria-pressed="true"] #music-visualizer {
+            opacity: 0.95;
+        }
+        .music-bubble[aria-pressed="true"] .music-icon {
+            opacity: 0.24;
+            transform: scale(0.82);
         }
         #music-track {
             width: 100%;
-            border: 1px solid var(--border);
-            border-radius: 0.625rem;
-            background: var(--surface-muted);
-            padding: 0.5rem 0.65rem;
-            color: var(--text);
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.48);
+            border-radius: 0;
+            background: transparent;
+            padding: 0.3rem 1.5rem 0.3rem 0;
+            color: #fff;
             font: inherit;
             font-size: 0.8rem;
+            cursor: pointer;
         }
         #music-track:focus {
-            border-color: #60A5FA;
-            outline: 2px solid rgba(96, 165, 250, 0.24);
+            border-color: #fff;
+            outline: 2px solid rgba(255, 255, 255, 0.4);
         }
-        #music-visualizer {
-            display: flex;
-            width: 7.25rem;
-            height: 2.75rem;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 2px;
-            padding: 0.25rem 0.4rem;
-            overflow: hidden;
+        #music-track option {
+            background: #172936;
+            color: #fff;
         }
         #music-visualizer span {
             flex: 1 1 0;
-            min-width: 2px;
-            max-width: 5px;
+            min-width: 1px;
+            max-width: 3px;
             height: 100%;
-            border-radius: 2px 2px 0 0;
-            background: linear-gradient(to top, #3B82F6, #a5e8f2);
-            opacity: 0.88;
+            border-radius: 999px;
+            background: #e8fbff;
+            box-shadow: 0 0 5px rgba(216, 249, 255, 0.7);
             transform: scaleY(0.1);
-            transform-origin: bottom;
+            transform-origin: center;
             transition: transform 90ms linear;
-        }
-        #music-toggle {
-            white-space: nowrap;
-        }
-        #music-toggle[aria-pressed="true"] .music-icon {
-            animation: music-pulse 1.2s ease-in-out infinite;
-        }
-        @keyframes music-pulse {
-            50% { transform: scale(1.2); }
         }
         @media (max-width: 420px) {
             .music-player {
-                width: min(21rem, calc(100vw - 2rem));
-                max-width: calc(100vw - 2rem);
-                gap: 0.35rem;
-                padding: 0.55rem;
+                width: min(17rem, 100%);
             }
-            #music-visualizer {
-                width: clamp(3rem, 24vw, 5rem);
-                flex: 1 1 auto;
-            }
-            #music-toggle {
-                gap: 0.375rem;
-                padding: 0.625rem 0.75rem;
-                font-size: 0.75rem;
+        }
+        @media (min-width: 768px) {
+            .music-player {
+                margin: 0 auto;
             }
         }
         .reveal {
@@ -305,7 +356,9 @@
             .project-card.reveal.is-visible:hover {
                 transform: none;
             }
-            #music-toggle[aria-pressed="true"] .music-icon {
+            .music-bubble[aria-pressed="true"],
+            .music-bubble[aria-pressed="true"]::before,
+            .music-bubble[aria-pressed="true"]::after {
                 animation: none;
             }
         }
@@ -318,7 +371,7 @@
         
         <section id="hero" class="hero-gradient text-white py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex flex-col md:flex-row items-center md:items-stretch justify-between">
                     <div class="md:w-1/2 mb-8 md:mb-0">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInUp">
                             Mohamed Youssouf Keita
@@ -338,13 +391,30 @@
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-2/5 animate__animated animate__fadeIn animate__delay-2s">
-                        <div class="relative">
+                    <div class="md:w-2/5 md:flex md:flex-col animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="relative my-auto">
                             <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl">
                                 <img id="profile-image" src="myka.jpg" alt="Mohamed Youssouf Keita" class="w-full h-full object-cover">
                             </div>
                             <div class="absolute -bottom-4 -right-4 bg-white text-primary p-4 rounded-full shadow-lg">
                                 <i class="fas fa-code text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="music-player" role="group" aria-label="Lecteur de musique">
+                            <button id="music-toggle" type="button" aria-label="Play ambient music" aria-pressed="false" class="music-bubble">
+                                <span id="music-visualizer" role="img" aria-label="Audio equalizer paused"></span>
+                                <i class="music-icon fas fa-play" aria-hidden="true"></i>
+                                <span data-i18n="musicPlay" class="sr-only">Play ambient music</span>
+                            </button>
+                            <div class="min-w-0 flex-1">
+                                <label for="music-track" data-i18n="musicTrackLabel" class="sr-only">Choose a track</label>
+                                <select id="music-track" aria-label="Choose a track">
+                                    <option value="cinematic" data-i18n="musicTrackCinematic">Cinematic Pop</option>
+                                    <option value="lofi" data-i18n="musicTrackLofi">Lo-fi Chill</option>
+                                    <option value="neon" data-i18n="musicTrackNeon">Neon Pulse</option>
+                                    <option value="diamonds" data-i18n="musicTrackDiamonds">Rihanna — Diamonds</option>
+                                    <option value="ojuelegba" data-i18n="musicTrackOjuelegba">Wizkid — Ojuelegba</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -662,23 +732,6 @@
         </section>
     </main>
     
-    <div class="music-player fixed bottom-5 right-5 z-50">
-        <label for="music-track" data-i18n="musicTrackLabel" class="sr-only">Choose a track</label>
-        <select id="music-track" aria-label="Choose a track">
-            <option value="cinematic" data-i18n="musicTrackCinematic">Cinematic Pop</option>
-            <option value="lofi" data-i18n="musicTrackLofi">Lo-fi Chill</option>
-            <option value="neon" data-i18n="musicTrackNeon">Neon Pulse</option>
-            <option value="diamonds" data-i18n="musicTrackDiamonds">Rihanna — Diamonds</option>
-            <option value="ojuelegba" data-i18n="musicTrackOjuelegba">Wizkid — Ojuelegba</option>
-        </select>
-        <div class="music-controls">
-            <div id="music-visualizer" role="img" aria-label="Music frequency visualizer, idle"></div>
-            <button id="music-toggle" type="button" aria-pressed="false" class="inline-flex items-center gap-3 rounded-full bg-primary px-5 py-3 font-semibold text-white transition hover:-translate-y-1 hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300">
-                <i class="music-icon fas fa-music" aria-hidden="true"></i>
-                <span data-i18n="musicPlay">Play some music</span>
-            </button>
-        </div>
-    </div>
     <footer-component></footer-component>
 
 
@@ -813,6 +866,7 @@
                 course3: "Conception et analyse d’algorithmes", course4: "Technologies web, bases de données et spécialisation full stack",
                 projectsTitle: "Projets", projectsLead: "Projets de recherche appliquée, de cybersécurité et d’ingénierie logicielle.",
                 musicPlay: "Lancer la musique", musicPause: "Mettre en pause", musicUnavailable: "Audio indisponible",
+                musicPlayerLabel: "Lecteur de musique",
                 musicVisualizerPlaying: "Égaliseur audio animé", musicVisualizerIdle: "Égaliseur audio en pause",
                 musicTrackLabel: "Choisir une ambiance musicale",
                 musicTrackCinematic: "Pop cinématique originale", musicTrackLofi: "Lo-fi relaxant original", musicTrackNeon: "Électro énergique originale",
@@ -874,6 +928,7 @@
                 course3: "Algorithm Design and Analysis", course4: "Web Technologies, Database Management Systems, and Full-Stack Specialization",
                 projectsTitle: "Projects", projectsLead: "Applied research, cybersecurity, and software engineering projects.",
                 musicPlay: "Play ambient music", musicPause: "Pause music", musicUnavailable: "Audio unavailable",
+                musicPlayerLabel: "Music player",
                 musicVisualizerPlaying: "Animated audio equalizer", musicVisualizerIdle: "Audio equalizer paused",
                 musicTrackLabel: "Choose a music style",
                 musicTrackCinematic: "Original cinematic pop", musicTrackLofi: "Original lo-fi chill", musicTrackNeon: "Original upbeat electro",
@@ -918,7 +973,9 @@
             const languageToggle = document.querySelector('#language-toggle');
             languageToggle.textContent = language === 'fr' ? 'EN' : 'FR';
             languageToggle.setAttribute('aria-label', language === 'fr' ? 'Switch to English' : 'Passer en français');
+            document.querySelector('.music-player').setAttribute('aria-label', translations[language].musicPlayerLabel);
             document.querySelector('#music-track').setAttribute('aria-label', translations[language].musicTrackLabel);
+            visualizer.setAttribute('aria-label', translations[language].musicVisualizerIdle);
             updateMusicButton();
             document.title = language === 'fr' ? 'Mohamed Youssouf Keita - Portfolio' : 'Mohamed Youssouf Keita - Portfolio';
             document.querySelector('header-component a[aria-label="Go to homepage"]')?.setAttribute('aria-label', language === 'fr' ? 'Retour à l’accueil' : 'Go to homepage');
@@ -1024,6 +1081,8 @@
             button.querySelector('[data-i18n="musicPlay"]').textContent = translations[currentLanguage][key];
             button.setAttribute('aria-label', translations[currentLanguage][key]);
             button.setAttribute('aria-pressed', String(isPlaying && key !== 'musicUnavailable'));
+            button.querySelector('.music-icon').classList.toggle('fa-pause', isPlaying && key !== 'musicUnavailable');
+            button.querySelector('.music-icon').classList.toggle('fa-play', !isPlaying || key === 'musicUnavailable');
         }
 
         function midiFrequency(note) {
@@ -1224,9 +1283,8 @@
                     await musicContext.suspend();
                 }
                 musicError = true;
-                button.querySelector('[data-i18n="musicPlay"]').textContent = translations[currentLanguage].musicUnavailable;
-                button.setAttribute('aria-label', translations[currentLanguage].musicUnavailable);
                 button.setAttribute('aria-pressed', 'false');
+                updateMusicButton();
                 stopMusicVisualizer();
             } finally {
                 button.disabled = false;
