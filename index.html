@@ -598,6 +598,9 @@
                     <h3 data-i18n="appointmentTitle" class="text-2xl font-semibold text-dark mb-2">Request an appointment</h3>
                     <p data-i18n="appointmentLead" class="text-gray-600 mb-6">Tell me when you’re available and I’ll get back to you by email.</p>
                     <form id="appointment-form" class="space-y-5">
+                        <div class="hidden" aria-hidden="true">
+                            <label>Leave this field empty<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label>
+                        </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <label class="block">
                                 <span data-i18n="appointmentName" class="block text-sm font-medium text-dark mb-2">Your name</span>
@@ -625,10 +628,11 @@
                             <span data-i18n="appointmentMessage" class="block text-sm font-medium text-dark mb-2">Additional details</span>
                             <textarea class="appointment-input" name="message" rows="4" maxlength="1000" required></textarea>
                         </label>
-                        <p data-i18n="appointmentEmailNote" class="text-sm text-gray-600">Submitting opens your email app with the request addressed to me. You’ll need to send it there; this static site can’t send or confirm appointments automatically.</p>
+                        <p data-i18n="appointmentEmailNote" class="text-sm text-gray-600">Your request is sent securely through FormSubmit to my email. FormSubmit processes submissions and retains them for up to 30 days. The first submission may require me to confirm my address before delivery begins.</p>
                         <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300">
                             <span data-i18n="appointmentSubmit">Request appointment</span> <i class="fas fa-paper-plane" aria-hidden="true"></i>
                         </button>
+                        <p id="appointment-status" class="text-sm text-gray-600" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
@@ -685,6 +689,30 @@
                 }
             ],
             projects: [
+                {
+                    title: "Battle Arena: Bluetooth Multiplayer Fighting Game",
+                    titleEn: "Battle Arena: Bluetooth Multiplayer Fighting Game",
+                    organization: "Projet de développement de jeux Android",
+                    organizationEn: "Android Game Development Project",
+                    description: "Projet de jeu de combat Android consacré au multijoueur via Bluetooth.",
+                    descriptionEn: "An Android fighting game project focused on multiplayer gameplay over Bluetooth.",
+                    image: "",
+                    imageAlt: "Jeu de combat multijoueur Android Battle Arena",
+                    technologies: ["Android", "Bluetooth", "Jeu multijoueur"],
+                    link: ""
+                },
+                {
+                    title: "Application de gestion de clinique",
+                    titleEn: "Clinic Management App",
+                    organization: "Projet IBM4203",
+                    organizationEn: "IBM4203 Coursework Project",
+                    description: "Application Android conçue pour numériser les opérations quotidiennes des cliniques de taille moyenne. Le projet couvre la gestion des patients, des médecins, des rendez-vous et des traitements, avec recherche avancée, opérations CRUD, composants Material Design 3, persistance Room et architecture MVVM avec Repository. Le rapport documente les exigences, la conception, l’implémentation, la vérification, le déploiement, la sécurité, la maintenance et les pistes d’évolution.",
+                    descriptionEn: "A professional-grade Android app for digitizing day-to-day workflows in medium-sized clinics. It covers patient, doctor, appointment, and treatment management, with advanced search, full CRUD flows, Material Design 3 components, Room persistence, and an MVVM + Repository architecture. The report documents requirements, design, implementation, verification, deployment, security, maintenance, and future enhancements.",
+                    image: "",
+                    imageAlt: "Application Android de gestion de clinique",
+                    technologies: ["Android", "Kotlin", "Jetpack Compose", "Material Design 3", "Room", "MVVM", "Repository"],
+                    link: ""
+                },
                 {
                     title: "Sparx · Expert en reconnaissance d’attaques et phishing social",
                     titleEn: "Sparx · Social Phishing and Attack Recognition Expert",
@@ -760,8 +788,11 @@
                 appointmentName: "Votre nom", appointmentEmail: "Votre e-mail", appointmentDate: "Date souhaitée", appointmentTime: "Heure souhaitée",
                 appointmentTimezone: "Heures selon votre fuseau horaire :", appointmentTopic: "Quel sujet souhaitez-vous aborder ?",
                 appointmentMessage: "Informations complémentaires",
-                appointmentEmailNote: "L’envoi ouvre votre messagerie avec la demande adressée à mon adresse. Vous devrez l’envoyer depuis votre messagerie ; ce site statique ne peut pas envoyer d’e-mail ni confirmer automatiquement un rendez-vous.",
+                appointmentEmailNote: "Votre demande est envoyée à mon adresse e-mail via FormSubmit. Ce service traite les demandes et les conserve jusqu’à 30 jours. Lors du premier envoi, une confirmation de mon adresse peut être nécessaire avant la livraison.",
                 appointmentSubmit: "Demander un rendez-vous",
+                appointmentSending: "Envoi de la demande…",
+                appointmentSuccess: "Demande envoyée. Je vous recontacterai par e-mail pour confirmer le rendez-vous.",
+                appointmentFailure: "La demande n’a pas pu être envoyée. Veuillez réessayer ou me contacter directement par e-mail.",
                 navHome: "Accueil", navAbout: "À propos", navExperience: "Parcours", navProjects: "Projets",
                 navCertifications: "Distinctions", navLeadership: "Engagements", navWriting: "Publications", navContact: "Contact",
                 footerRole: "Étudiant en génie informatique", footerRights: "Tous droits réservés."
@@ -811,8 +842,11 @@
                 appointmentName: "Your name", appointmentEmail: "Your email", appointmentDate: "Preferred date", appointmentTime: "Preferred time",
                 appointmentTimezone: "Times are in your local timezone:", appointmentTopic: "What would you like to discuss?",
                 appointmentMessage: "Additional details",
-                appointmentEmailNote: "Submitting opens your email app with the request addressed to me. You’ll need to send it there; this static site can’t send emails or confirm appointments automatically.",
+                appointmentEmailNote: "Your request is sent to my email through FormSubmit. This service processes submissions and retains them for up to 30 days. The first submission may require me to confirm my email address before delivery begins.",
                 appointmentSubmit: "Request appointment",
+                appointmentSending: "Sending your request…",
+                appointmentSuccess: "Request sent. I’ll email you to confirm the appointment.",
+                appointmentFailure: "Your request could not be sent. Please try again or contact me directly by email.",
                 navHome: "Home", navAbout: "About", navExperience: "Experience", navProjects: "Projects",
                 navCertifications: "Awards", navLeadership: "Leadership", navWriting: "Publications", navContact: "Contact",
                 footerRole: "Computer Engineering Student", footerRights: "All rights reserved."
@@ -1280,29 +1314,48 @@
         const appointmentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
         document.querySelector('#appointment-timezone').textContent = appointmentTimezone;
 
-        function createAppointmentMailto(formData, timezone) {
-            const name = formData.get('name').trim();
-            const email = formData.get('email').trim();
-            const date = formData.get('date');
-            const time = formData.get('time');
-            const topic = formData.get('topic').trim();
-            const message = formData.get('message').trim();
-            const subject = `Appointment request from ${name}`;
-            const body = [
-                `Name: ${name}`,
-                `Email: ${email}`,
-                `Preferred date: ${date}`,
-                `Preferred time: ${time} (${timezone})`,
-                `Topic: ${topic}`,
-                '',
-                message
-            ].join('\n');
-            return `mailto:mohamedyoussoufkeita4@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-
-        appointmentForm.addEventListener('submit', event => {
+        appointmentForm.addEventListener('submit', async event => {
             event.preventDefault();
-            window.location.href = createAppointmentMailto(new FormData(appointmentForm), appointmentTimezone);
+            if (!appointmentForm.reportValidity()) return;
+
+            const submitButton = appointmentForm.querySelector('button[type="submit"]');
+            const status = document.querySelector('#appointment-status');
+            const payload = Object.fromEntries(new FormData(appointmentForm).entries());
+            payload.timezone = appointmentTimezone;
+            payload._subject = `Appointment request from ${payload.name}`;
+            payload._template = 'table';
+            submitButton.disabled = true;
+            status.textContent = translations[currentLanguage].appointmentSending;
+            status.classList.remove('text-red-400', 'text-green-400');
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/mohamedyoussoufkeita4@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`FormSubmit returned HTTP ${response.status}`);
+                }
+
+                const result = await response.json();
+                if (String(result.success).toLowerCase() !== 'true') {
+                    throw new Error(result.message || 'FormSubmit did not accept the request.');
+                }
+
+                appointmentForm.reset();
+                status.textContent = translations[currentLanguage].appointmentSuccess;
+                status.classList.add('text-green-400');
+            } catch (error) {
+                console.error('Unable to submit appointment request:', error);
+                status.textContent = translations[currentLanguage].appointmentFailure;
+                status.classList.add('text-red-400');
+            } finally {
+                submitButton.disabled = false;
+            }
         });
 
         const revealObserver = new IntersectionObserver(entries => {

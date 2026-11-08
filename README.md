@@ -6,7 +6,7 @@ The navbar language button switches the portfolio between French and English. Th
 
 Project cards tilt and lift as visitors move their pointer over them. A fixed music player includes a live frequency equalizer and plays an optional, original cinematic pop loop with a dramatic melody, chords, bass, and beat. Audio is synthesized in the browser and starts only after the visitor clicks play.
 
-The contact section includes an appointment-request form. Because this portfolio is static, submitting opens the visitor's email app with the request pre-addressed to `mohamedyoussoufkeita4@gmail.com`; visitors must send the email themselves, and appointments are not automatically confirmed.
+The contact section includes an appointment-request form submitted through FormSubmit without opening the visitor's email app. FormSubmit sends submissions to `mohamedyoussoufkeita4@gmail.com`, processes the submitted contact and appointment details, and retains submissions for up to 30 days. Confirm the FormSubmit activation email before relying on delivery. The form reports successful delivery to FormSubmit, but appointment availability still needs to be confirmed manually.
 
 ## Personalize the portfolio
 
